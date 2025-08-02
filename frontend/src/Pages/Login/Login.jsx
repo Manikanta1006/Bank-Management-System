@@ -40,7 +40,7 @@ function Login() {
    if(result.meta.requestStatus==="fulfilled"){
 
     if(result.payload.user.UserType==="Coustomer"){
-      navigate("/customer")
+      navigate("/main/customer")
     }
     else if(result.payload.user.UserType==="Manager"){
       navigate("/manager")
@@ -70,6 +70,7 @@ function Login() {
             <TextField
               name='Email'
               label="Email"
+              type='email'
               variant="outlined"
               onChange={handleChange}
               className='input_reg'

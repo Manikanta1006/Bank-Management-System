@@ -1,0 +1,482 @@
+.customer_outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1vw;
+  gap: 0.5vw;
+}
+
+.sidebar_outer {
+  width: 22vw;
+  height: 100vh;
+  border-radius: 0.5vw;
+  background: linear-gradient(145deg, #2E2A4F 0%, #3C3B5A 40%, #1C1C1C 100%);
+}
+
+.right_outlet_outer {
+  width: 100%;
+  background: linear-gradient(110deg, rgb(220, 219, 221) 3%, rgb(248, 249, 249) 90%);
+  border-radius: 0.5vw;
+ }
+
+.right {
+  width: 100%;
+  margin: 0;
+  /* background-color: red; */
+  /* border: 2px solid green; */
+}
+
+
+
+.logo {
+  font-size: 3.2vw;
+  display: flex;
+  justify-content: center;
+  gap: 0.2vw;
+  color: white;
+}
+
+.logo_icon {
+  font-size: 3vw;
+}
+
+.list_items_outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list_item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.7vw;
+  margin-top: 1.5vw;
+  width: 11vw;
+  height: 3vw;
+  color: #c2c1c1;
+  font-weight: 500;
+  cursor: pointer;
+  /* background: rgba(255, 255, 255, 0.05); */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid #ffffff03;
+  border-radius: 0.2vw;
+  padding-left: 0.5vw;
+  transition: all 0.3s ease;
+}
+
+.list_item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* .list_item:hover{
+    border-left: 2px solid;
+} */
+.icon {
+  font-size: 1.8vw;
+}
+
+.list {
+  font-size: 1.3vw;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.logout_outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vw;
+}
+
+.logout_outer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 0.2vw 0.8vw;
+  font-size: 1vw;
+  font-weight: 600;
+  color: white;
+  background-color: #d10000;
+  border: 2px solid transparent;
+  border-radius: 2vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(255, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.logout_outer button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: #e00000;
+}
+
+.logout_icon {
+  font-size: 1.4vw;
+  transition: transform 0.3s ease;
+}
+
+.logout_outer button:hover .logout_icon {
+  transform: scale(1.1) rotate(-8deg);
+}
+
+.greeting_outer {
+  /* border: 2px solid red; */
+  width: 78vw;
+  height: 13.5vw;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.1vw;
+  margin-top: 1.7vw;
+}
+
+.swiper {
+  padding: 0.5vw;
+  /* border: 2px solid; */
+  width: 43vw;
+  height: 15vw;
+}
+
+.check_balance {
+  /* border: 2px solid green; */
+  width: 25vw;
+  border-radius: 1vw;
+}
+
+.greeting {
+  /* border: 2px solid blue; */
+  width: 42vw;
+  border-radius: 1vw;
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
+  background: linear-gradient(135deg, #afd8f5, #ffffff);
+  height: 13.2vw;
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); */
+
+
+}
+
+/* .greeting:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+} */
+
+.greet_left {
+  /* border: 2px solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5vw;
+  margin-left: 2.5vw;
+}
+
+
+
+.greet1 {
+  width: 21vw;
+  height: 16vw;
+  margin-top: -1vw;
+}
+
+.hello_user {
+  font-size: 1.8vw;
+  margin: 0;
+}
+
+.greet_text1 {
+  margin-top: 0.3vw;
+  font-size: 1.2vw;
+}
+
+.greet_text2 {
+  margin: 0;
+  font-size: 1.2vw;
+  margin-top: -1vw;
+  /* border: 2px solid; */
+  width: 20vw;
+}
+
+.quick_button {
+  width: 7vw;
+  padding: 0.6vw 0.6vw;
+  font-size: 1vw;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  outline: none;
+  margin-top: 1vw;
+}
+
+.quick_button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #3556a0, #101e35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+.user_info_outer {
+  /* border: 2px solid orange; */
+  height: auto;
+  margin-top: 2vw;
+  margin-left: 0.8vw;
+  width: 76vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.user_hello_outer {
+  display: flex;
+  gap: 0.7vw;
+  margin-top: 0.5vw;
+}
+
+.dash_board {
+  font-size: 2vw;
+  margin: 0;
+}
+
+.welcome {
+  font-size: 1.2vw;
+  margin: 0;
+
+}
+
+.username {
+  font-size: 1.3vw;
+  font-weight: 600;
+  margin: 0;
+}
+
+.hello_icon {
+  font-size: 1.3vw;
+}
+
+.serch_bar_outer {
+  /* border: 2px solid; */
+  display: flex;
+  justify-content: space-between;
+  width: 20vw;
+  border-radius: 1vw;
+  overflow: hidden;
+  /* padding: 0.3vw; */
+}
+
+.serch_icon_outer {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3vw;
+  background-color: rgb(73, 72, 72);
+  width: 2.1vw;
+  border-bottom-right-radius: 1vw;
+  border-top-right-radius: 1vw;
+}
+
+.serch {
+  width: 17vw;
+  padding: 0.2vw 0.2vw 0.2vw 0.8vw;
+  height: 1.5vw;
+  border: none;
+  outline: none;
+
+}
+
+.user_info_right {
+  /* border: 2px solid green; */
+  width: 2.3vw;
+  height: 2.3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2vw;
+}
+
+.serch_icon {
+  font-size: 1.3vw;
+  color: white;
+}
+
+.user_logo {
+  font-size: 1.4vw;
+}
+
+.user_icon {
+  font-size: 2.5vw;
+  cursor: pointer;
+}
+
+.user_info_layer2 {
+  /* border: 2px solid green; */
+  display: flex;
+  gap: 1vw;
+  margin-top: 1vw;
+}
+
+.layer2_left {
+  /* border: 2px solid red; */
+  width: 22vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+.layer2_right {
+  /* border: 2px solid green; */
+  width: 30vw;
+}
+
+.layer2_info {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  background: linear-gradient(135deg, #9595a1, #eceaea);
+  padding: 1.3vw 2.3vw;
+  border-radius: 1vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: fit-content;
+  cursor: pointer;
+  width: 12vw;
+  /* transition: all 0.35s ease-in-out; */
+}
+
+.layer2_info:hover {
+  /* transform: scale(1); */
+  transition: 0.7s;
+  box-shadow: 0 6px 20px rgba(26, 26, 27, 0.5);
+  background: linear-gradient(135deg, #6a6eff, #ffffff);
+  border: 2px solid #b1b5ff;
+}
+
+
+
+.layer2_info_left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account_icon {
+  font-size: 2.5vw;
+}
+
+.layer2_info_right h2 {
+  margin: 0;
+  font-size: 1.3vw;
+  font-weight: 600;
+  color: #333;
+}
+
+
+.chart_heading {
+  margin: 0;
+  font-size: 1.3vw;
+  margin-top: 1vw;
+}
+
+/* .chart {
+  margin-top: 1vw;
+  width:40vw;
+  height: 20vw;
+} */
+
+
+.credit_card_style {
+  width: 20vw;
+  height: 9.7vw;
+  border-radius: 1vw;
+  /* background: linear-gradient(135deg, #fc466b, #3f5efb); */
+  background: linear-gradient(135deg, #485563, #29323c);
+
+  color: white;
+  padding: 2vw;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card_chip {
+  width: 3vw;
+  height: 2vw;
+  border-radius: 0.4vw;
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+}
+
+.card_title {
+  font-size: 1.2vw;
+  font-weight: 600;
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  color: #dcdcdc;
+}
+
+.card_balance {
+  margin-top: 3vw;
+}
+
+.card_balance span {
+  font-size: 1vw;
+  color: #cccccc;
+}
+
+.card_balance h2 {
+  font-size: 2vw;
+  font-weight: bold;
+  margin-top: 0.5vw;
+  display: flex;
+  align-items: center;
+  gap: 0.3vw;
+}
+
+.card_footer {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+.card_footer p {
+  font-size: 0.8vw;
+  margin: 0;
+  color: #bbbbbb;
+  margin-top: 0.4vw;
+}
+
+.card_footer h4 {
+  font-size: 1.1vw;
+  margin: 0.2vw 0 0 0;
+}

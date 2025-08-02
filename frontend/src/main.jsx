@@ -10,6 +10,9 @@ import { Provider } from 'react-redux'
 import Customer from './Pages/Cutomer/Customer.jsx'
 import Admin from './Pages/Admin/Admin.jsx'
 import Manager from './Pages/Manager/Manager.jsx'
+import Sidebar from './Components/Sidebar/Sidebar.jsx'
+import UserDashboard from './Components/UserDashboard/UserDashboard.jsx'
+import AccountCreation from './Pages/AccountCreation/AccountCreation.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,10 +22,18 @@ const router = createBrowserRouter([
         path: "",
         element: <Login/>
       },
+
       {path:"/register",element:<Register/>},
-      {path:"/customer",element:<Customer/>},
-      {path:"/admin",element:<Admin/>},
-      {path:"/manager",element:<Manager/>}
+      // {path:"/customer",element:<Customer/>},
+      // {path:"/admin",element:<Admin/>},
+      // {path:"/manager",element:<Manager/>}
+      {path:"/main",element:<Sidebar/>,
+        children:[
+         {path:"/main/customer",element:<UserDashboard/>},
+         {path:"/main/createaccount",element:<AccountCreation/>}
+        ]
+
+      }
     ]
   }
 ])
