@@ -32,6 +32,10 @@ function UserDashboard() {
   const handleClick=()=>{
     navigate("/main/createaccount")
   }
+
+  const handleNavigate =()=>{
+    navigate("/main/maps")
+  }
   return (
     // <div>
     <div className="right_outlet_outer">
@@ -44,7 +48,6 @@ function UserDashboard() {
             <p className="welcome">Welcome</p>
             <p className="username">Manikanta</p>
             <PiHandWavingDuotone className='hello_icon' />
-
           </div>
 
         </div>
@@ -52,21 +55,16 @@ function UserDashboard() {
           <input type="text" className="serch" placeholder='Serch here...' />
           <div className="serch_icon_outer">
             <PiMagnifyingGlassBold className='serch_icon' />
-
           </div>
         </div>
 
         <div className="user_info_right">
           <div className="right_logo">
             <HiUserCircle className='user_icon' />
-
           </div>
         </div>
       </div>
-
-
       <div className="greeting_outer">
-
         <div className="credit_card_style">
           <img src={chip} alt="" className="card_chip" />
           <div className="card_title">Bank of BMS</div>
@@ -171,12 +169,12 @@ function UserDashboard() {
               <h2>Savings Suggestions</h2>
             </div>
           </div>
-          <div className="layer2_info">
+          <div className="layer2_info" onClick={handleNavigate}>
             <div className="layer2_info_left">
               <MdLocationOn className='account_icon' />
             </div>
             <div className="layer2_info_right">
-              <h2>ATM finder</h2>
+              <h2>Main Branch</h2>
             </div>
           </div>
 
@@ -196,7 +194,7 @@ function UserDashboard() {
         <div className="layer2_right">
           <h1 className="chart_heading">This month trasations</h1>
           <LineChart width={400} height={240} data={data} className='chart'>
-            <CartesianGrid strokeDasharray="3 3" stroke='none' />
+            <CartesianGrid strokeDasharray="3 3"  />
             <XAxis dataKey="week" />
             <YAxis />
             <Tooltip />

@@ -13,6 +13,8 @@ import Manager from './Pages/Manager/Manager.jsx'
 import Sidebar from './Components/Sidebar/Sidebar.jsx'
 import UserDashboard from './Components/UserDashboard/UserDashboard.jsx'
 import AccountCreation from './Pages/AccountCreation/AccountCreation.jsx'
+import Account from './Pages/Account/Account.jsx'
+import Atmfinder from './Pages/ATM finder/Atmfinder.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,13 +26,13 @@ const router = createBrowserRouter([
       },
 
       {path:"/register",element:<Register/>},
-      // {path:"/customer",element:<Customer/>},
-      // {path:"/admin",element:<Admin/>},
-      // {path:"/manager",element:<Manager/>}
+ 
       {path:"/main",element:<Sidebar/>,
         children:[
          {path:"/main/customer",element:<UserDashboard/>},
-         {path:"/main/createaccount",element:<AccountCreation/>}
+         {path:"/main/createaccount",element:<AccountCreation/>},
+         {path:"/main/account",element:<Account/>},
+         {path:"/main/maps",element:<Atmfinder/>}
         ]
 
       }

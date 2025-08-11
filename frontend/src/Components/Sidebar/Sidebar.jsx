@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import "./Sidebar.css"
 import { BsBank } from 'react-icons/bs'
-import { MdSpaceDashboard } from 'react-icons/md'
+import { MdOutlineAccountBalanceWallet, MdOutlineMiscellaneousServices, MdSpaceDashboard } from 'react-icons/md'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { RiLogoutBoxRFill } from 'react-icons/ri'
+import { TbHelpHexagonFilled, TbHelpOctagonFilled, TbTransform } from "react-icons/tb";
+import { GiReceiveMoney } from "react-icons/gi";
+import { BiSolidHelpCircle } from "react-icons/bi";
+
 function Sidebar() {
 
      const [active, setActive] = useState("dashboard")
     const navigate = useNavigate()
       const handleClick = (e) => {
         setActive(e)
+        if(e==="dashboard"){
+            navigate("/main/customer")
+        }
+        else if(e==="Account"){
+            navigate("/main/account")
+        }
       }
-      useEffect(()=>{
-        navigate("/main/customer")
-      },[])
+    //   useEffect(()=>{
+    //     navigate("/main/customer")
+    //   },[])
     return (
         <div className='customer_outer'>
             <div className="sidebar_outer">
@@ -28,26 +38,26 @@ function Sidebar() {
                     </div>
 
                     <div className={`list_item ${active === "Account" ? "active" : ""}`} onClick={() => handleClick("Account")}>
-                        <MdSpaceDashboard className='icon' />
+                        <MdOutlineAccountBalanceWallet className='icon' />
                         <p className="list">Account</p>
                     </div>
 
                     <div className={`list_item ${active === "transations" ? "active" : ""}`} onClick={() => handleClick("transations")} >
-                        <MdSpaceDashboard className='icon' />
+                        <TbTransform className='icon' />
                         <p className="list">Transactions</p>
                     </div>
                     <div className={`list_item ${active === "loan" ? "active" : ""}`} onClick={() => handleClick("loan")} >
-                        <MdSpaceDashboard className='icon' />
+                        <GiReceiveMoney className='icon' />
                         <p className="list">Loan</p>
                     </div>
                     <div className={`list_item ${active === "service" ? "active" : ""}`} onClick={() => handleClick("service")}>
-                        <MdSpaceDashboard className='icon' />
+                        <MdOutlineMiscellaneousServices className='icon' />
                         <p className="list">Service</p>
                     </div>
 
 
                     <div className={`list_item ${active === "Help" ? "active" : ""}`} onClick={() => handleClick("Help")}>
-                        <MdSpaceDashboard className='icon' />
+                        <TbHelpHexagonFilled className='icon' />
                         <p className="list">Help</p>
                     </div>
 
@@ -57,7 +67,7 @@ function Sidebar() {
                 </div>
             </div>
  
-             <Outlet/>
+             <Outlet />
           </div>
     )
 }

@@ -1,29 +1,224 @@
-.acc_creation_outer{
-    border: 2px solid red;
+.acc_creation_outer {
+    /* border: 2px solid red; */
     width: 100%;
-    height:100vh;
+    height: 100vh;
+    overflow: scroll;
+    background: linear-gradient(110deg, rgb(220, 219, 221) 3%, rgb(248, 249, 249) 90%);
+
+
 }
-.personal_info{
-    border: 2px solid;
-    width:78vw;
+
+.acc_creation_outer::-webkit-scrollbar {
+    display: none;
+}
+
+.personal_info {
+    /* border: 2px solid; */
+    width: 73vw;
     display: flex;
     flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    /* gap: 1.2vw; */
+    margin-left: 4vw;
+    padding: 0.4vw;
+    border-radius: 0.3vw;
+    border: 1px solid gray;
+    border-radius: 0.5vw;
 }
-.personal_info_heading{
-    font-size:2vw;
-    margin-top: 1vw;
+
+.personal_info_heading {
+    font-size: 2vw;
+    margin-top: 2vw;
+    margin-left: 4vw;
 }
-.label{
+
+.label {
     font-size: 1.2vw;
 }
-.input_outer{
-   display: flex;
-   flex-direction: column; 
-   border: 2px solid;
-   width: 17vw;
-   align-items: start;
-   margin:1vw;
+
+.ac_input_outer {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid; */
+    width: 17vw;
+    align-items: start;
+    margin: 0.5vw;
+    gap: 0.1vw;
+
 }
-.input{
+
+.label {
+    font-size: 1.2vw;
+    font-weight: 550;
+}
+
+.input {
     margin-top: 0.5vw;
+    width: 14vw;
+    padding: 0.7vw;
+    outline: none;
+    font-size: 1.1vw;
+    border-radius: 0.4vw;
+    border: 1px solid #b0b0b0;
+    background-color: #f0f0f0;
+    color: #2c3e50;
+    box-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.1);
+}
+.error_msg_outer{
+    /* border: 2px solid; */
+    width: 15vw;
+    height: 1.4vw;
+}
+.error_msg{
+    font-size: 1vw;
+    color: red;
+    margin-left: 0.4vw;
+    margin-top: 0.2vw;
+    font-weight: 550;
+}
+.select {
+    margin-top: 0.5vw;
+    width: 15.5vw;
+    padding: 0.7vw;
+    outline: none;
+    font-size: 1.1vw;
+    border: none;
+    border: 1px solid #b0b0b0;
+    background-color: #f0f0f0;
+    color: #2c3e50;
+    box-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+
+}
+
+.acc_options {
+    background-color: rgb(74, 74, 74);
+    color: white;
+}
+
+.Adress_details_outer {
+    /* border: 2px solid red; */
+    margin-top: 2vw;
+    margin-left: 4vw;
+
+}
+
+.adress_details2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    /* gap: 1.5vw; */
+    width: 72.5vw;
+    padding: 0.5vw;
+    border: 1px solid gray;
+    border-radius: 0.5vw;
+    /* box-shadow: 0.2vw 0.2vw 0.3vw 0.1vw gray; */
+
+}
+
+.Bank_detals_outer {
+    /* border: 2px solid orange; */
+    width: 75vw;
+    margin-left: 4vw;
+    margin-top: 2vw;
+}
+
+.upload_files_outer {
+    /* border: 2px solid red; */
+    width: 75vw;
+    margin-left: 4vw;
+    margin-top: 2vw;
+}
+
+.upload_cards_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+    padding: 2vw;
+    border: 1px solid gray;
+    border-radius: 0.5vw;
+    width: 69.7vw;
+}
+
+.upload_card {
+    width: 18vw;
+    height: 12vw;
+    background: #ffffff;
+    border: 1px solid #dcdde1;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.upload_card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.15);
+}
+
+.upload_card_label {
+    font-size: 1vw;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1vw;
+    text-align: center;
+}
+
+.upload_card_input {
+    width: 90%;
+    padding: 0.5vw;
+    border: 1px dashed #95a5a6;
+    border-radius: 0.5vw;
+    background-color: #f7f9fa;
+    font-size: 0.9vw;
+    color: #2d3436;
+    text-align: center;
+}
+
+
+
+.acc_submit_button_outer {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: end;
+    padding: 1vw;
+    margin-top: 1vw;
+}
+
+
+.form_button_submit {
+    margin-right: 4vw;
+    width: 5.2vw;
+    height: 2.5vw;
+    font-size: 1.1vw;
+    font-weight: 550;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: linear-gradient(145deg, #2E2A4F 0%, #3C3B5A 40%, #1C1C1C 100%);
+    color: white;
+    border-radius: 0.6vw;
+}
+
+.upload_img {
+    width:8vw;
+}
+
+.upload_img2 {
+    width: 7vw;
+    height: 6.2vw;
+}
+
+.upload_icon {
+    font-size: 5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    color: rgb(149, 149, 242);
 }

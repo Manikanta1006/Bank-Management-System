@@ -1,0 +1,57 @@
+.account_outer{
+    border: 2px solid;
+    width: 100%;
+    height:97.5vh;
+}
+.account_details_layer1{
+    border: 2px solid red;
+    display: flex;
+    margin-left: 2vw;
+    gap: 1vw;
+}
+.account_details_heading{
+    margin-left: 2vw;
+}
+.layer1_left{
+    border: 2px solid green;
+    width: 32vw;
+    display: flex;
+    gap: 1vw;
+}
+.user_img_outer{
+    width:9vw;
+    height:9vw;
+    border: 2px solid red;
+    border-radius: 5vw;
+}
+.user{
+    width:9vw;
+    height:9vw; 
+    border-radius: 5vw;
+
+}
+.user_details{
+    border: 2px solid;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.layer2_right{
+    border: 2px solid blue;
+}
+.person_name{
+    font-size: 1.5vw;
+    margin: 0;
+}
+.account_type{
+    font-size: 1.2vw;
+}
+.name_sub{
+    font-size: 1.6vw;
+}
+.account_type_sub{
+    font-size: 1.4vw;
+    font-weight: 550;
+}

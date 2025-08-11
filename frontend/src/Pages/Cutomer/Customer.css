@@ -7,7 +7,7 @@
 }
 
 .sidebar_outer {
-  width: 22vw;
+  width:17vw;
   height: 100vh;
   border-radius: 0.5vw;
   background: linear-gradient(145deg, #2E2A4F 0%, #3C3B5A 40%, #1C1C1C 100%);
@@ -17,6 +17,8 @@
   width: 100%;
   background: linear-gradient(110deg, rgb(220, 219, 221) 3%, rgb(248, 249, 249) 90%);
   border-radius: 0.5vw;
+  /* border: 2px solid red; */
+  height:100vh;
  }
 
 .right {
@@ -29,7 +31,7 @@
 
 
 .logo {
-  font-size: 3.2vw;
+  font-size: 3vw;
   display: flex;
   justify-content: center;
   gap: 0.2vw;
@@ -37,7 +39,7 @@
 }
 
 .logo_icon {
-  font-size: 3vw;
+  font-size: 2.8vw;
 }
 
 .list_items_outer {

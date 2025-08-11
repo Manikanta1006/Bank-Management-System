@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
 exports.register = async(req,res)=>{
+   
     const {UserName,Email,Password,UserType} = req.body;
     // console.log(UserName,Email,UserType,"datadata")
     const hashedPassword = await bcrypt.hash(Password,10)  
@@ -29,7 +30,7 @@ exports.login = async(req,res)=>{
         }
 
         const token = jwt.sign({id:user._id,UserType:user.UserType},"mani123")
-        res.json({token,user:{UserName:user.UserName,UserType:user.UserType}})
+        res.json({token,user:{id:user._id,UserName:user.UserName,UserType:user.UserType}})
     }
     catch(err){
         res.status(500).json({error:err.message})
