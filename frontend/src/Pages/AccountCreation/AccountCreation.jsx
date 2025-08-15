@@ -13,9 +13,9 @@ import { toast } from 'react-toastify'
 function AccountCreation() {
 
 
-  const User = useSelector((state) => state.auth)
+  const {user} = useSelector((state) => state.auth)
 
-  console.log(User.user.id, "acacacac")
+  console.log(user.id, "acacacac")
 
 
   const dispatch = useDispatch()
@@ -30,7 +30,10 @@ function AccountCreation() {
       .required("Please select your gender"),
     MobileNumber: Yup.string()
       .required("This field is required")
-      .max(10, "Mobile number must be 10 digits"),
+      .min(10, "Mobile number must be 10 digits")
+      .max(12,"Mobile number must be max 12 digits only")
+      ,
+      
     AdharNumber: Yup.string()
       .required("This field is required")
       .max(12, "Aadhaar number must be exactly 12 digits"),
@@ -83,17 +86,14 @@ function AccountCreation() {
     InitialDiposit: '',
     NomineeName: '',
     NomineeRelation: '',
-    // adharCard: '',
-    // panCard: '',
-    // photo: ''
-
+    userId:user?.id
   }
 
   const [files, setFiles] = useState({
     adharCard: null,
     panCard: null,
     photo: null,
-    UserId: User?.user?.id
+    UserId:user?.id
   });
 
 

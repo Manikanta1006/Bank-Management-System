@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaRupeeSign } from 'react-icons/fa'
 import { FaHandHoldingDollar } from 'react-icons/fa6'
 import { HiUserCircle } from 'react-icons/hi2'
@@ -8,18 +8,23 @@ import { PiHandWavingDuotone, PiMagnifyingGlassBold } from 'react-icons/pi'
 import { SiFuturelearn } from 'react-icons/si'
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 // import Swiper from 'swiper'
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import { SwiperSlide, Swiper } from 'swiper/react'
-import 'swiper/css'; // core styles
+import "swiper/css";
+
+ 
 
 // Optional for effects
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import chip from "../../assets/UserDashboard/chip2.jpg"
+
 import greet1 from "../../assets/UserDashboard/greet1.png"
 import greet2 from "../../assets/UserDashboard/bsw.png"
+
 import { useNavigate } from 'react-router-dom'
 function UserDashboard() {
+ 
   const data = [
     { week: 'Week 1', amount: 5500 },
     { week: 'Week 2', amount: 3200 },
@@ -27,13 +32,14 @@ function UserDashboard() {
     { week: 'Week 4', amount: 2100 },
 
   ];
+ 
   const navigate = useNavigate()
 
-  const handleClick=()=>{
+  const handleClick = () => {
     navigate("/main/createaccount")
   }
 
-  const handleNavigate =()=>{
+  const handleNavigate = () => {
     navigate("/main/maps")
   }
   return (
@@ -64,6 +70,7 @@ function UserDashboard() {
           </div>
         </div>
       </div>
+
       <div className="greeting_outer">
         <div className="credit_card_style">
           <img src={chip} alt="" className="card_chip" />
@@ -121,6 +128,7 @@ function UserDashboard() {
           </Swiper>
         </div>
 
+       
 
       </div>
 
@@ -191,10 +199,10 @@ function UserDashboard() {
 
         </div>
 
-        <div className="layer2_right">
+        <div className="user_dash_layer2_right">
           <h1 className="chart_heading">This month trasations</h1>
-          <LineChart width={400} height={240} data={data} className='chart'>
-            <CartesianGrid strokeDasharray="3 3"  />
+          <LineChart width={380} height={220} data={data} className='chart'>
+            <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="week" />
             <YAxis />
             <Tooltip />
