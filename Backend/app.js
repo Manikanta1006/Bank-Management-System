@@ -7,6 +7,7 @@ const authRoutes = require("./Routes/authRoutes")
 const AccountRoutes = require("./Routes/AccountRoutes")
 const uploadRoutes = require("./Routes/fileupload.Routes")
 const UserwithAccountRoutes = require("./Routes/User.Routes")
+const TransationRoutes = require("./Routes/TransationRoutes")
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -17,7 +18,7 @@ app.use("/api/account",AccountRoutes)
 app.use("/api/uploads",uploadRoutes)
 app.use("/uploads",express.static("uploads"))
 app.use("/api/userwithaccount",UserwithAccountRoutes)
-
+app.use("/api/transations",TransationRoutes)
 
 app.listen(3004,()=>{
     console.log("server running on port 3004")

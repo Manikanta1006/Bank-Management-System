@@ -13,5 +13,6 @@ router.post("/uploadfiles",
     ,
     filesController.fileupload
 )
+router.get("/getfiles/:id",filesController.getfiles)
 
 module.exports =router

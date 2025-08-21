@@ -1,3 +1,4 @@
+const { default: mongoose } = require("mongoose");
 const accountModel = require("../Model/CreateAccount.model")
 
 
@@ -49,3 +50,4 @@ module.exports={
     updateAccount,
     deleteaccount
 }
+

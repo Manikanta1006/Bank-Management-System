@@ -30,6 +30,25 @@ const fileupload = async (req, res) => {
     }
 };
 
+
+const getfiles = async (req, res) => {
+  try {
+    const {id} = req.params;
+    console.log(id,"iddddddidididii")
+    const docs = await fileModel.findOne({ userId: id });
+
+    if (!docs) {
+      return res.status(404).json({ message: "No documents found" });
+    }
+    res.json(docs);
+  } catch (error) {
+    console.log(error,"erreerer")
+    res.status(500).json({ message: "Server Error", error });
+  }
+};
+
+
 module.exports = {
-    fileupload
+    fileupload,
+    getfiles
 };

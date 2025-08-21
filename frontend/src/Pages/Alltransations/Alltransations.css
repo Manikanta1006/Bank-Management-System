@@ -1,0 +1,106 @@
+.transation_outer{
+    /* border: 2px solid red; */
+    width:100%;
+    height: 96.7vh;
+}
+.filter_outer{
+    /* border: 2px solid green; */
+    height: 5vw;
+    background-color: #a0a0a0;
+}
+.transation_card_outer{
+    overflow: scroll;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height:36vw;
+    margin-top: 1vw;
+}
+.transation_card_outer::-webkit-scrollbar{
+  display: none;
+}
+
+.bank_card {
+  width: 37vw;
+  padding: 1vw;
+  background-color: #f1f1f1;
+   border-radius: 0.6vw;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  border: 2px solid #003366;
+  color: #003366;
+  height:20.2vw;
+  margin-top: 1vw;
+}
+
+/* Header */
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.8vw;
+  margin-bottom: 0.5vw;
+  border-bottom: 2px solid #003366;
+}
+
+.logo_part {
+  display: flex;
+  align-items: center;
+  gap: 0.2vw;
+  /* border: 2px solid; */
+ }
+
+.bank_icon {
+  font-size: 2vw;
+  color: #003366;
+  margin-top: -0.4vw;
+}
+
+.logo_part h2 {
+  font-size: 1.6vw;
+  font-weight: 700;
+  color: #003366;
+  margin: 0;
+ }
+
+.head_text {
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+/* Rows */
+.card_rows .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7vw 0;
+  font-size: 1vw;
+  font-weight: 700;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.25);
+}
+
+.card_rows .row:last-child {
+  border-bottom: none;
+}
+
+.deposit {
+  color: #009e2d;
+}
+
+.withdraw {
+  color: #ff1e1e;
+}
+
+/* Button */
+.down_btn {
+  margin-top: 1vw;
+  padding: 0.7vw 2vw;
+  background-color: #a0a0a0;
+  border: none;
+  color: #fff;
+  border-radius: 0.4vw;
+  font-size: 1vw;
+  font-weight: 600;
+  cursor: pointer;
+  float: right;
+}

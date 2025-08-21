@@ -43,10 +43,10 @@ function Login() {
       navigate("/main/customer")
     }
     else if(result.payload.user.UserType==="Manager"){
-      navigate("/manager")
+      navigate("/manager/Dashboard")
     }
     else if(result.payload.user.UserType==="Admin"){
-      navigate("admin")
+      navigate("/admin")
     }
    }
   }

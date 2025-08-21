@@ -41,9 +41,9 @@ function AccountCreation() {
       .required("This field is required"),
     Nationality: Yup.string()
       .required("Please enter your nationality"),
-    adress: Yup.string()
+    City_or_Village: Yup.string()
       .required("This field is required"),
-    City: Yup.string()
+    District: Yup.string()
       .required("This field is required"),
     State: Yup.string()
       .required("This field is required"),
@@ -77,7 +77,7 @@ function AccountCreation() {
     AdharNumber: '',
     PANNumber: '',
     Nationality: '',
-    adress: '',
+    City_or_Village : '',
     City: '',
     State: '',
     PINCode: '',
@@ -96,7 +96,7 @@ function AccountCreation() {
     UserId:user?.id
   });
 
-
+ 
 
   const handleFileChange = (e) => {
     const { name, files: selectedFiles } = e.target;
@@ -204,16 +204,16 @@ function AccountCreation() {
 
                 <div className="ac_input_outer">
                   <label htmlFor="" className="label">Adress </label>
-                  <Field type="text" className="input" name='adress' placeholder='Enter your adress' />
+                  <Field type="text" className="input" name='City_or_Village' placeholder='Enter your adress' />
                   <div className="error_msg_outer">
-                    <ErrorMessage name="adress" component="div" className='error_msg' />
+                    <ErrorMessage name="City_or_Village" component="div" className='error_msg' />
                   </div>
                 </div>
                 <div className="ac_input_outer">
-                  <label htmlFor="" className="label">City</label>
-                  <Field type="text" className="input" name='City' placeholder='Enter your city name' />
+                  <label htmlFor="" className="label">District</label>
+                  <Field type="text" className="input" name='District' placeholder='Enter your city name' />
                   <div className="error_msg_outer">
-                    <ErrorMessage name="City" component="div" className='error_msg' />
+                    <ErrorMessage name="District" component="div" className='error_msg' />
                   </div>
                 </div>
                 <div className="ac_input_outer">

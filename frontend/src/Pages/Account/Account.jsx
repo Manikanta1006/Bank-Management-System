@@ -4,22 +4,30 @@ import person from "../../assets/register/5917.jpg"
 import Greeting from '../../Components/greeting/greeting'
 import { useDispatch, useSelector } from 'react-redux'
 import { gettingUserwithAccount } from '../../features/UserSlice/UserwithAccountSlice'
+import { getuserfiles } from '../../features/accountCreation/accountCreationSlice'
+
 function Account() {
 
   const dispatch = useDispatch()
 
-  const {user} = useSelector((state)=>state.auth)
-  console.log(user,"dddddddddddd")
+  const {UserDocs} = useSelector((state)=>state.account)
+  console.log(UserDocs,"xyxyxxyxyxy")
+  const { user } = useSelector((state) => state.auth)
+  console.log(user, "dddddddddddd")
 
-  const x = useSelector((state)=>state)
-  console.log(x,"xxxxxxxx")
+  const { UserDetails } = useSelector((state) => state.useraccount)
+  console.log(UserDetails, "xxxxxxxx")
+  console.log(UserDetails.accountDetails, "YYYYYYY")
 
 
-useEffect(() => {
-  if (user?.id) {
-    dispatch(gettingUserwithAccount(user.id));
-  }
-}, [dispatch]);
+  useEffect(() => {
+    if (user?.id) {
+      dispatch(gettingUserwithAccount(user?.id));
+    }
+    dispatch(getuserfiles(user?.id))
+  }, [user?.id,dispatch]);
+  
+ 
   return (
     <div className='account_outer'>
 
@@ -27,11 +35,19 @@ useEffect(() => {
       <div className="account_details_layer1">
         <div className="layer1_left">
           <div className="user_img_outer">
-            <img src={person} alt="person" className="user" />
+            <img src={`http://localhost:3004/uploads/${UserDocs.photo}`} alt="person" className="user" />
           </div>
           <div className="user_details">
-            <h5 className="person_name"><span className='name_sub'>Name :</span> Manikanta</h5>
-            <p className="account_type"><span className='account_type_sub'>Account type :</span> Savings</p>
+            <h5 className="person_name"><span className='name_sub'>Name :</span> {UserDetails?.UserName}</h5>
+            {/* <p className="account_type"><span className='account_type_sub'>Account number:</span>{UserDetails?._id}</p> */}
+            <div className="account_type_outer">
+              <h6 className="account_type_heading">
+                Account number:
+              </h6>
+            <p className="account_type">
+              {UserDetails?.accountDetails?._id}
+            </p>
+            </div>
           </div>
         </div>
         <div className="center_border"></div>
@@ -53,32 +69,32 @@ useEffect(() => {
 
             <div className="personal_info_layer2">
               <div className="info">
-                <h6 className="info_heading_layer2">Phone number</h6>
-                <p className="info_information">9638520741</p>
+                <h6 className="info_heading_layer2">Gender</h6>
+                <p className="info_information">{UserDetails?.accountDetails?.Gender}</p>
               </div>
 
               <div className="info">
-                <h6 className="info_heading_layer2">Phone number</h6>
-                <p className="info_information">9638520741</p>
+                <h6 className="info_heading_layer2">Date of birth</h6>
+                <p className="info_information">{UserDetails?.accountDetails?.DOB}</p>
               </div>
 
 
               <div className="info">
                 <h6 className="info_heading_layer2">Phone number</h6>
-                <p className="info_information">9638520741</p>
+                <p className="info_information">{UserDetails?.accountDetails?.MobileNumber}</p>
               </div>
               <div className="info">
-                <h6 className="info_heading_layer2">Phone number</h6>
-                <p className="info_information">9638520741</p>
+                <h6 className="info_heading_layer2">PAN card number</h6>
+                <p className="info_information">{UserDetails?.accountDetails?.PANNumber}</p>
               </div>
               <div className="info">
+                <h6 className="info_heading_layer2">Nationality</h6>
+                <p className="info_information">{UserDetails?.accountDetails?.Nationality}</p>
+              </div>
+              {/* <div className="info">
                 <h6 className="info_heading_layer2">Phone number</h6>
                 <p className="info_information">9638520741</p>
-              </div>
-              <div className="info">
-                <h6 className="info_heading_layer2">Phone number</h6>
-                <p className="info_information">9638520741</p>
-              </div>
+              </div> */}
 
             </div>
 
@@ -93,16 +109,20 @@ useEffect(() => {
 
               <div className="personal_info_layer2_right">
                 <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
+                  <h6 className="info_heading_layer2_right">Account type</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.AccountType}</p>
+                </div>
+                {/* <div className="info_right">
+                  <h6 className="info_heading_layer2_right">Initial diposit</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.[0]?.InitialDiposit}</p>
+                </div> */}
+                <div className="info_right">
+                  <h6 className="info_heading_layer2_right">Nominee Name</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.NomineeName}</p>
                 </div>
                 <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
-                </div>
-                <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
+                  <h6 className="info_heading_layer2_right">Nominee relation</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.NomineeRelation}</p>
                 </div>
 
 
@@ -117,21 +137,21 @@ useEffect(() => {
 
               <div className="personal_info_layer2_right">
                 <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
+                  <h6 className="info_heading_layer2_right">Village or City Name</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.City_or_Village}</p>
                 </div>
                 <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
+                  <h6 className="info_heading_layer2_right">District name</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.District}</p>
                 </div>
                 <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
+                  <h6 className="info_heading_layer2_right">State name</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.State}</p>
                 </div>
 
                 <div className="info_right">
-                  <h6 className="info_heading_layer2_right">Phone number</h6>
-                  <p className="info_information_right">9638520741</p>
+                  <h6 className="info_heading_layer2_right">PIN code</h6>
+                  <p className="info_information_right">{UserDetails?.accountDetails?.PINCode}</p>
                 </div>
               </div>
 
@@ -140,6 +160,21 @@ useEffect(() => {
           </div>
         </div>
 
+      </div>
+
+      <div className="docs_outer">
+        <h1 className="user_docs_heading">Your documents</h1>
+
+        <div className="user_docs_outer">
+
+        <div className="each_docs">
+          <img src={`http://localhost:3004/uploads/${UserDocs.adharCard}`} alt="adharCard" className="user_docs" />
+        </div>
+        <div className="each_docs">
+           <img src={`http://localhost:3004/uploads/${UserDocs.panCard}`} alt="PANcard" className="user_docs" />
+   
+        </div>
+         </div>
       </div>
     </div>
   )

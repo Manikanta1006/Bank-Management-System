@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaRupeeSign } from 'react-icons/fa'
 import { FaHandHoldingDollar } from 'react-icons/fa6'
 import { HiUserCircle } from 'react-icons/hi2'
@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import "swiper/css";
 
- 
+
 
 // Optional for effects
 import 'swiper/css/navigation';
@@ -23,8 +23,10 @@ import greet1 from "../../assets/UserDashboard/greet1.png"
 import greet2 from "../../assets/UserDashboard/bsw.png"
 
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { gettingUserwithAccount } from '../../features/UserSlice/UserwithAccountSlice'
 function UserDashboard() {
- 
+
   const data = [
     { week: 'Week 1', amount: 5500 },
     { week: 'Week 2', amount: 3200 },
@@ -32,7 +34,25 @@ function UserDashboard() {
     { week: 'Week 4', amount: 2100 },
 
   ];
- 
+
+  const dispatch = useDispatch()
+  const [toggle, setToggle] = useState(false)
+
+  const { user } = useSelector((state) => state.auth)
+  console.log(user, "dddddddddddd")
+
+
+  useEffect(() => {
+    if (user?.id) {
+      dispatch(gettingUserwithAccount(user?.id));
+    }
+  }, [user?.id, dispatch]);
+
+
+  const { UserDetails } = useSelector((state) => state.useraccount)
+
+  console.log(UserDetails, "YYYYYYY")
+
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -42,6 +62,14 @@ function UserDashboard() {
   const handleNavigate = () => {
     navigate("/main/maps")
   }
+
+  const handleShow = () => {
+    setToggle(prev => !prev)
+  }
+
+ 
+
+  console.log(toggle, "tttttttttt")
   return (
     // <div>
     <div className="right_outlet_outer">
@@ -76,12 +104,30 @@ function UserDashboard() {
           <img src={chip} alt="" className="card_chip" />
           <div className="card_title">Bank of BMS</div>
           <div className="card_balance">
-            <span>Available Balance</span>
-            <h2><FaRupeeSign /> 45,600.00</h2>
+            <div className="avaible_balance_outer">
+              <span>Available Balance</span>
+              <button onClick={handleShow}>Show balance</button>
+            </div>
+            {
+              toggle ? <>
+                <h2 ><FaRupeeSign />
+                  {UserDetails?.accountDetails?.InitialDiposit}
+                </h2>
+              </>
+                :
+                <>
+                  <h2 ><FaRupeeSign />
+                    ######
+                  </h2>
+                </>
+            }
+            {/* <h2 ><FaRupeeSign />
+             {UserDetails?.accountDetails?.InitialDiposit}
+             </h2> */}
           </div>
           <div className="card_footer">
             <p>Account Holder</p>
-            <h4>Manikanta</h4>
+            <h4>{UserDetails?.UserName}</h4>
             <div>
 
             </div>
@@ -128,7 +174,7 @@ function UserDashboard() {
           </Swiper>
         </div>
 
-       
+
 
       </div>
 

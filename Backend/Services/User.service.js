@@ -11,6 +11,11 @@ const getUserWithAccounts = async (userId) => {
         foreignField: "userId",
         as: "accountDetails"
       }
+    },
+    {
+      $unwind: {
+        path: "$accountDetails",
+      }
     }
   ]);
   return user;

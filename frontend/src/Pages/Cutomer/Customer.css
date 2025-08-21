@@ -8,7 +8,7 @@
 
 .sidebar_outer {
   width:17vw;
-  height: 100vh;
+  height:98vh;
   border-radius: 0.5vw;
   background: linear-gradient(145deg, #2E2A4F 0%, #3C3B5A 40%, #1C1C1C 100%);
 }
@@ -454,6 +454,21 @@
   color: #dcdcdc;
 }
 
+.avaible_balance_outer{
+  /* border: 2px solid; */
+  width:21vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.avaible_balance_outer button{
+  width: 6.2vw;
+  cursor: pointer;
+  font-size: 0.8vw;
+  border-radius: 0.5vw;
+  border: none;
+  outline: none;
+}
 .card_balance {
   margin-top: 3vw;
 }

@@ -36,6 +36,15 @@ export const addDocs = createAsyncThunk(
     }
 )
 
+
+export const getuserfiles = createAsyncThunk(
+    "files/get",
+    async(id)=>{
+        const res = await axios.get(`http://localhost:3004/api/uploads/getfiles/${id}`)
+        console.log(res,"rererrererrssss")
+        return res.data
+    }
+)
 const accountSlice = createSlice({
     name: "Account",
     initialState: {
@@ -57,6 +66,18 @@ const accountSlice = createSlice({
             .addCase(createAccount.rejected, (state, action) => {
                 state.status = "rejected"
                 state.error = action.error.message
+            })
+            builder
+            .addCase(getuserfiles.pending,(state)=>{
+                state.status = 'pending'
+            })
+            .addCase(getuserfiles.fulfilled,(state,action)=>{
+                state.status = "fulfilled"
+                state.UserDocs = action.payload
+            })
+            .addCase(getuserfiles.rejected,(state,action)=>{
+                state.status = 'rejected'
+                state.error =action.error.message
             })
     },
 

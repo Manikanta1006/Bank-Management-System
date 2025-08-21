@@ -22,10 +22,10 @@ const accountSchema = new mongoose.Schema({
     PANNumber:{
         type:String
     },
-    adress:{
+    City_or_Village:{
         type:String
     },
-    City:{
+    District:{
         type:String
     },
     State:{
@@ -49,6 +49,10 @@ const accountSchema = new mongoose.Schema({
     NomineeRelation:{
         type:String
     },
+    Nationality:{
+        type:String
+    },
+   
 },
  {timestamps:true}
 )

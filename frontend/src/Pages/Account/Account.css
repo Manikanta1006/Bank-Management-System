@@ -4,6 +4,11 @@
     height: 99vh;
     background-color: rgb(243, 242, 242);
     border-radius: 0.5vw;
+    overflow: scroll;
+}
+
+.account_outer::-webkit-scrollbar {
+    display: none;
 }
 
 .account_details_layer1 {
@@ -74,10 +79,12 @@
 .person_name {
     font-size: 1.5vw;
     margin: 0;
+    margin-top: 0.7vw;
 }
 
 .account_type {
     font-size: 1.2vw;
+    font-weight: 550;
 }
 
 .name_sub {
@@ -87,8 +94,20 @@
 .account_type_sub {
     font-size: 1.4vw;
     font-weight: 550;
+    width: 30vw;
 }
+.account_type_outer{
+    /* border: 2px solid green; */
+    margin-top: 0.5vw;
+}
+.account_type_heading{
+    font-size: 1.5vw;
+    margin: 0;
+}
+.account_type{
+    margin-top: 0.4vw;
 
+}
 .main_layer2_outer {
     /* border: 2px solid; */
     display: flex;
@@ -134,7 +153,6 @@
     width: 39vw;
     border-radius: 0.5vw;
     background-color: rgb(224, 223, 223);
-
 }
 
 .quick_access_cards {
@@ -176,8 +194,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     margin-top: 3vw;
 }
 
@@ -189,7 +207,7 @@
     flex-direction: column;
     gap: 0.5vw;
     text-align: start;
-    margin-left: 3.5vw;
+    margin-left: 5vw;
 }
 
 .info_heading_layer2 {
@@ -222,7 +240,7 @@
 .personal_info_heading_layer2_right {
     font-size: 1.1vw;
     margin: 0;
- 
+
 }
 
 .personal_info_layer2_right {
@@ -257,4 +275,42 @@
     margin: 0;
     font-weight: 550;
     color: #2f2f2f;
+}
+
+.docs_outer {
+    /* border: 2px solid red; */
+    margin-top: 2vw;
+    padding: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user_docs_outer{
+    display: flex;
+     justify-content: space-around;
+     padding: 1vw;
+     /* border: 2px solid green; */
+    background-color: rgb(224, 223, 223);
+     width:74.5vw;
+     border-radius: 0.5vw;
+}
+.user_docs_heading{
+    font-size: 2vw;
+}
+.user_docs {
+    width: 20vw;
+    height: 15vw;
+}
+
+.each_docs {
+    width: 20vw;
+    height: 15vw;
+    margin-top: 1vw;
+}
+
+.user_docs {
+    width: 20vw;
+    height: 15vw;
+    border-radius: 0.5vw;
 }
