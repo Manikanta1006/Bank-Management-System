@@ -18,6 +18,7 @@ import Atmfinder from './Pages/ATM finder/Atmfinder.jsx'
 import Alltransation from './Pages/Alltransations/Alltransation.jsx'
 import ManagerDashBoard from './Components/ManagerDashBoard/ManagerDashBoard.jsx'
 import ManagerSidebar from './Components/Managersidebar/ManagerSidebar.jsx'
+import LoanCreation from './Pages/LoanCreation/LoanCreation.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
          {path:"/main/account",element:<Account/>},
          {path:"/main/maps",element:<Atmfinder/>},
          {path:"/main/transations",element:<Alltransation/>},
+         {path:"/main/loan",element:<LoanCreation/>}
         //  {path:"/main/manager",element:<ManagerDashBoard/>}
         ]
 

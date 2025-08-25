@@ -292,16 +292,13 @@ function AccountCreation() {
                   <img src={adhar} alt="adhar" className="upload_img" />
                   <label htmlFor="" className="upload_card_label">Aadhar Card</label>
                   <input required type="file" name='adharCard' className="upload_card_input" onChange={handleFileChange} />
-
                 </div>
 
                 <div className="upload_card">
                   <img src={pan} alt="" className="upload_img2" />
                   <label htmlFor="" className="upload_card_label">PAN Card</label>
                   <input required type="file" name='panCard' className="upload_card_input" onChange={handleFileChange} />
-
                 </div>
-
                 <div className="upload_card">
                   <FaUser className="upload_icon" />
                   <label htmlFor="" className="upload_card_label">Your Photo</label>

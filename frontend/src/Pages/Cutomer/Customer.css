@@ -8,7 +8,7 @@
 
 .sidebar_outer {
   width:17vw;
-  height:98vh;
+  height:97vh;
   border-radius: 0.5vw;
   background: linear-gradient(145deg, #2E2A4F 0%, #3C3B5A 40%, #1C1C1C 100%);
 }
@@ -18,7 +18,7 @@
   background: linear-gradient(110deg, rgb(220, 219, 221) 3%, rgb(248, 249, 249) 90%);
   border-radius: 0.5vw;
   /* border: 2px solid red; */
-  height:100vh;
+  height:97vh;
  }
 
 .right {
@@ -350,7 +350,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5vw;
+  gap: 1.2vw;
 }
 
 .user_dash_layer2_right {
@@ -365,12 +365,13 @@
   align-items: center;
   gap: 1.5vw;
   background: linear-gradient(135deg, #9595a1, #eceaea);
-  padding: 1.3vw 2.3vw;
+  padding: 1vw 2.1vw;
   border-radius: 1vw;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   width: fit-content;
   cursor: pointer;
   width: 12vw;
+  /* border: 2px solid red; */
   /* transition: all 0.35s ease-in-out; */
 }
 

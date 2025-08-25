@@ -23,6 +23,9 @@ function Sidebar() {
         else if(e==="transations"){
             navigate("/main/transations")
         }
+        else if(e==="loan"){
+            navigate("/main/loan")
+        }
       }
     //   useEffect(()=>{
     //     navigate("/main/customer")

@@ -67,7 +67,13 @@ function UserDashboard() {
     setToggle(prev => !prev)
   }
 
- 
+  const Gotoaccount = () => {
+    navigate("/main/account")
+  }
+
+  const handleTransations = () => {
+    navigate("/main/transations")
+  }
 
   console.log(toggle, "tttttttttt")
   return (
@@ -182,15 +188,30 @@ function UserDashboard() {
       <div className="user_info_layer2">
 
         <div className="layer2_left">
+          {
+            user?.id ? <>
+              <div className="layer2_info" onClick={Gotoaccount}>
+                <div className="layer2_info_left">
+                  <MdAddCircleOutline className='account_icon' />
+                </div>
+                <div className="layer2_info_right">
+                  <h2>Go to Account</h2>
+                </div>
+              </div>
+            </>
+              :
+              <>
+                <div className="layer2_info" onClick={handleClick}>
+                  <div className="layer2_info_left">
+                    <MdAddCircleOutline className='account_icon' />
+                  </div>
+                  <div className="layer2_info_right">
+                    <h2>Create Account</h2>
+                  </div>
+                </div>
+              </>
+          }
 
-          <div className="layer2_info" onClick={handleClick}>
-            <div className="layer2_info_left">
-              <MdAddCircleOutline className='account_icon' />
-            </div>
-            <div className="layer2_info_right">
-              <h2>Create Account</h2>
-            </div>
-          </div>
 
           <div className="layer2_info">
             <div className="layer2_info_left">
@@ -201,7 +222,7 @@ function UserDashboard() {
               <h2>Apply for Loan</h2>
             </div>
           </div>
-          <div className="layer2_info">
+          <div className="layer2_info" onClick={handleTransations}>
             <div className="layer2_info_left">
               <LuArrowLeftRight className="account_icon" />
 
