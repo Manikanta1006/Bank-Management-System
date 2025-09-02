@@ -60,6 +60,23 @@ const AmountDeposite = async (managerId, AccountId, amount, TransationType) => {
                 depositeRecord
             }
         }
+    
+        
+    //   const account = await UserAccount.findById(AccountId)
+    //         console.log(account,"acaccacaca")
+    //     const intrest = 4;
+    //      const monthlyIntrest = (account.InitialDiposit * intrest) / 12 /100
+
+    //      account.InitialDiposit = account.InitialDiposit+monthlyIntrest
+
+    //         await account.save()
+
+    //          await Transation.create({
+    //             // managerId,
+    //             AccountId,
+    //             amount:monthlyIntrest,
+    //             TransationType:'Intrest'
+    //         })
 
     }
 

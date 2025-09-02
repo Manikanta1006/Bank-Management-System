@@ -38,9 +38,20 @@ function UserDashboard() {
   const dispatch = useDispatch()
   const [toggle, setToggle] = useState(false)
 
-  const { user } = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state?.auth)
   console.log(user, "dddddddddddd")
 
+  const y = useSelector((state)=>state)
+  console.log(y,"store")
+
+  // const [refreshOnce, setRefreshOnce] = useState(false);
+  // useEffect(() => {
+  //   if (!user && !refreshOnce) {
+  //     // Reload page only once
+  //     setRefreshOnce(true);
+  //     window.location.reload();
+  //   }
+  // }, [user, refreshOnce]);
 
   useEffect(() => {
     if (user?.id) {
@@ -76,6 +87,9 @@ function UserDashboard() {
   }
 
   console.log(toggle, "tttttttttt")
+
+
+
   return (
     // <div>
     <div className="right_outlet_outer">
@@ -86,7 +100,7 @@ function UserDashboard() {
           </h1>
           <div className="user_hello_outer">
             <p className="welcome">Welcome</p>
-            <p className="username">Manikanta</p>
+            <p className="username">{user?.UserName}</p>
             <PiHandWavingDuotone className='hello_icon' />
           </div>
 
@@ -189,7 +203,7 @@ function UserDashboard() {
 
         <div className="layer2_left">
           {
-            user?.id ? <>
+            UserDetails?.accountDetails?._id ? <>
               <div className="layer2_info" onClick={Gotoaccount}>
                 <div className="layer2_info_left">
                   <MdAddCircleOutline className='account_icon' />

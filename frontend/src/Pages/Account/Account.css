@@ -1,7 +1,7 @@
 .account_outer {
     /* border: 2px solid; */
     width: 100%;
-    height: 99vh;
+    height: 97vh;
     background-color: rgb(243, 242, 242);
     border-radius: 0.5vw;
     overflow: scroll;
@@ -96,18 +96,22 @@
     font-weight: 550;
     width: 30vw;
 }
-.account_type_outer{
+
+.account_type_outer {
     /* border: 2px solid green; */
     margin-top: 0.5vw;
 }
-.account_type_heading{
+
+.account_type_heading {
     font-size: 1.5vw;
     margin: 0;
 }
-.account_type{
+
+.account_type {
     margin-top: 0.4vw;
 
 }
+
 .main_layer2_outer {
     /* border: 2px solid; */
     display: flex;
@@ -148,8 +152,8 @@
 }
 
 .main_layer2_div1 {
-    /* border: 2px solid; */
-    height: 11.2vw;
+    border: 2px solid;
+    height: 11.4vw;
     width: 39vw;
     border-radius: 0.5vw;
     background-color: rgb(224, 223, 223);
@@ -201,7 +205,6 @@
 
 .info {
     /* border: 2px solid green; */
-
     width: 11vw;
     display: flex;
     flex-direction: column;
@@ -244,14 +247,13 @@
 }
 
 .personal_info_layer2_right {
-    /* border: 2px solid red; */
     width: 36.5vw;
     display: flex;
     flex-wrap: wrap;
-    gap: 1vw;
+    gap: 0.4vw;
     justify-content: start;
     align-items: start;
-    margin-top: 0.7vw;
+    margin-top: 0.5vw;
 }
 
 .info_right {
@@ -275,6 +277,7 @@
     margin: 0;
     font-weight: 550;
     color: #2f2f2f;
+    width: 14vw;
 }
 
 .docs_outer {
@@ -286,18 +289,21 @@
     justify-content: center;
     align-items: center;
 }
-.user_docs_outer{
+
+.user_docs_outer {
     display: flex;
-     justify-content: space-around;
-     padding: 1vw;
-     /* border: 2px solid green; */
+    justify-content: space-around;
+    padding: 1vw;
+    /* border: 2px solid green; */
     background-color: rgb(224, 223, 223);
-     width:74.5vw;
-     border-radius: 0.5vw;
+    width: 74.5vw;
+    border-radius: 0.5vw;
 }
-.user_docs_heading{
+
+.user_docs_heading {
     font-size: 2vw;
 }
+
 .user_docs {
     width: 20vw;
     height: 15vw;
