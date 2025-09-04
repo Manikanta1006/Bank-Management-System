@@ -4,6 +4,7 @@ import axios from "axios";
 export const gettingUserwithAccount = createAsyncThunk(
     "usewithaccount/get",
     async(id)=>{
+        console.log(id,"sisisisisisisi")
         const res = await axios.get(`http://localhost:3004/api/userwithaccount/useraccountdetail/${id}`)
         return res.data
     }

@@ -14,12 +14,12 @@ function ManagerSidebar() {
     const navigate = useNavigate()
     const handleClick = (e) => {
         setActive(e)
-        // if (e === "dashboard") {
-        //     navigate("/main/customer")
-        // }
-        // else if (e === "Account") {
-        //     navigate("/main/account")
-        // }
+        if (e ==="dashboard") {
+            navigate("/manager/Dashboard")
+        }
+        else if (e === "Customers") {
+            navigate("/manager/customers")
+        }
         // else if (e === "transations") {
         //     navigate("/main/transations")
         // }
@@ -37,7 +37,7 @@ function ManagerSidebar() {
                         <p className="list">Dashboard</p>
                     </div>
 
-                    <div className={`list_item ${active === "Account" ? "active" : ""}`} onClick={() => handleClick("Account")}>
+                    <div className={`list_item ${active === "Customers" ? "active" : ""}`} onClick={() => handleClick("Customers")}>
                         <MdOutlineAccountBalanceWallet className='icon' />
                         <p className="list">Customers</p>
                     </div>

@@ -11,21 +11,22 @@ function Account() {
   const dispatch = useDispatch()
 
   const {UserDocs} = useSelector((state)=>state.account)
-  console.log(UserDocs,"xyxyxxyxyxy")
-  const { user } = useSelector((state) => state.auth)
-  console.log(user, "dddddddddddd")
-
+  
   const { UserDetails } = useSelector((state) => state.useraccount)
-  console.log(UserDetails, "xxxxxxxx")
-  console.log(UserDetails.accountDetails, "YYYYYYY")
+ 
+  const x = useSelector((state)=>state)
+  console.log(x,"sasasasasaa")
 
+  const local = localStorage.getItem('user')
+  const data = local ? JSON.parse(local):null
 
+  console.log(data,"lllll")
   useEffect(() => {
-    if (user?.id) {
-      dispatch(gettingUserwithAccount(user?.id));
+    if (data?.id) {
+      dispatch(gettingUserwithAccount(data?.id));
     }
-    dispatch(getuserfiles(user?.id))
-  }, [user?.id,dispatch]);
+    dispatch(getuserfiles(data?.id))
+  }, [data?.id,dispatch]);
   
  
   return (

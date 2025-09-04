@@ -7,11 +7,15 @@ import { RiLogoutBoxRFill } from 'react-icons/ri'
 import { TbHelpHexagonFilled, TbHelpOctagonFilled, TbTransform } from "react-icons/tb";
 import { GiReceiveMoney } from "react-icons/gi";
 import { BiSolidHelpCircle } from "react-icons/bi";
+import { useDispatch } from 'react-redux'
+import { logout } from '../../features/authSlice/authSlice'
 
 function Sidebar() {
 
      const [active, setActive] = useState("dashboard")
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
       const handleClick = (e) => {
         setActive(e)
         if(e==="dashboard"){
@@ -30,6 +34,10 @@ function Sidebar() {
     //   useEffect(()=>{
     //     navigate("/main/customer")
     //   },[])
+
+    const handleLogout =()=>{
+         dispatch(logout())
+    }
     return (
         <div className='customer_outer'>
             <div className="sidebar_outer">
@@ -69,7 +77,7 @@ function Sidebar() {
 
                 </div>
                 <div className="logout_outer">
-                    <button className='logout'>Logout <RiLogoutBoxRFill className='logout_icon' /></button>
+                    <button className='logout' onClick={handleLogout}>Logout <RiLogoutBoxRFill className='logout_icon' /></button>
                 </div>
             </div>
  

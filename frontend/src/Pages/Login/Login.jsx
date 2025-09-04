@@ -1,5 +1,5 @@
 import { Button, Checkbox, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsBank } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +19,6 @@ function Login() {
   const [toggle, setToggle] = useState('false')
 
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -31,6 +30,30 @@ function Login() {
   const handleInput = () => {
     setToggle((prev) => !prev)
   }
+
+  const localdata = localStorage.getItem('user')
+
+  useEffect(()=>{
+
+    const data = localdata ? JSON.parse(localdata) : null
+    console.log(data,"dtdtdttt")
+
+    if(data?.UserType==="Coustomer"){
+        navigate("/main/customer")
+    }
+    else if(data?.UserType==="Manager"){
+      navigate("/manager/Dashboard")
+    }
+    else if(data?.UserType==="Admin"){
+      // navigate("/manager/Dashboard")
+    }
+    else{
+      navigate("/")
+    }
+
+  },[localdata,navigate])
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -50,6 +73,9 @@ function Login() {
     }
    }
   }
+
+  
+   
 
   const handleNavigate =()=>{
     navigate("/register")

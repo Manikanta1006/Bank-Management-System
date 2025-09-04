@@ -22,14 +22,18 @@ function Alltransation() {
   const { user } = useSelector((state) => state.auth)
 
 
+  const localdata = localStorage.getItem('user')
+  const userdata = localdata ? JSON.parse(localdata) : null
+
+
 
 
   useEffect(() => {
-    if (user?.id) {
-      dispatch(gettingUserwithAccount(user?.id));
+    if (userdata?.id) {
+      dispatch(gettingUserwithAccount(userdata?.id));
     }
     dispatch(getaccbytransation(UserDetails?.accountDetails?._id))
-  }, [user?.id, UserDetails?._id, dispatch]);
+  }, [userdata?.id, UserDetails?._id,UserDetails?.accountDetails?._id, dispatch]);
 
 
  
@@ -63,11 +67,14 @@ function Alltransation() {
 
       <div className="transation_card_outer">
         {
-          TransationsById?.map((data, ind) => (
+          UserDetails?.accountDetails?._id ?
+          <>
+            {
+                TransationsById?.map((data, ind) => (
             <div className="bank_card" key={ind}  ref={cardRef}>
               <div className="card_header">
                 <div className="logo_part">
-                  <BsBank className="bank_icon" />
+                  <BsBank className="all_bank_icon" />
                   <h2>BMS</h2>
                 </div>
                 <p className="head_text">Transaction Statement</p>
@@ -102,6 +109,13 @@ function Alltransation() {
               {/* <button className="down_btn" onClick={() => downloadPDF(data)}>Download</button> */}
             </div>
           ))
+            }
+          </>
+          :
+          <>
+          <h1>No trasation Available</h1>
+          </>
+        
         }
 
       </div>

@@ -1,10 +1,9 @@
 const userDetails = require("../Services/User.service")
 
 const userDetailsController = async(req,res)=>{
-    // console.log(req.params.id,"idididi")
-    const {id} = req.params
-    // console.log(id,"iddddddddddidididi")
-   
+     const {id} = req.params
+    //  console.log(id,"pppppppppp")
+    
     try{
         const user = await userDetails.getUserWithAccounts(id)
         // console.log(user,"useruseruser")

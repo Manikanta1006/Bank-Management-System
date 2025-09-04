@@ -42,6 +42,14 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     Users: [],
+    reducers:{
+        logout:(state)=>{
+            state.user = null;
+            state.token = null;
+            localStorage.removeItem('user')
+            localStorage.removeItem('token');
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(register.pending, (state) => {
@@ -51,7 +59,7 @@ const authSlice = createSlice({
             .addCase(register.fulfilled, (state, action) => {
                 state.loading = false
                 console.log(action.payload.User,"aaaaaaaaaa")
-                state.Users = action.payload
+                state.Users = action.payload.user
             })
             .addCase(register.rejected, (state, action) => {
                 state.loading = false
@@ -64,7 +72,7 @@ const authSlice = createSlice({
             .addCase(login.fulfilled,(state,action)=>{
                 state.loading = false
                 // console.log(action.payload.user,"pppppppp")
-                state.User = action.payload.user
+                state.Users = action.payload.user
             })
             .addCase(login.rejected,(state,action)=>{
                 state.loading = false
@@ -72,6 +80,6 @@ const authSlice = createSlice({
             })
     }       
 })
-
+export const {logout} = authSlice.actions
 const authReducer = authSlice.reducer
 export default authReducer

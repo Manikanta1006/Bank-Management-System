@@ -13,9 +13,12 @@ import { toast } from 'react-toastify'
 function AccountCreation() {
 
 
-  const {user} = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state.auth)
 
-  console.log(user.id, "acacacac")
+  // console.log(user.id, "acacacac")
+  
+  const localdata = localStorage.getItem('user')
+  const userdata = localdata ? JSON.parse(localdata) : null
 
 
   const dispatch = useDispatch()
@@ -31,9 +34,9 @@ function AccountCreation() {
     MobileNumber: Yup.string()
       .required("This field is required")
       .min(10, "Mobile number must be 10 digits")
-      .max(12,"Mobile number must be max 12 digits only")
-      ,
-      
+      .max(12, "Mobile number must be max 12 digits only")
+    ,
+
     AdharNumber: Yup.string()
       .required("This field is required")
       .max(12, "Aadhaar number must be exactly 12 digits"),
@@ -77,7 +80,7 @@ function AccountCreation() {
     AdharNumber: '',
     PANNumber: '',
     Nationality: '',
-    City_or_Village : '',
+    City_or_Village: '',
     City: '',
     State: '',
     PINCode: '',
@@ -86,17 +89,17 @@ function AccountCreation() {
     InitialDiposit: '',
     NomineeName: '',
     NomineeRelation: '',
-    userId:user?.id
+    userId: userdata?.id
   }
 
   const [files, setFiles] = useState({
     adharCard: null,
     panCard: null,
     photo: null,
-    UserId:user?.id
+    UserId: userdata?.id
   });
 
- 
+
 
   const handleFileChange = (e) => {
     const { name, files: selectedFiles } = e.target;
@@ -106,10 +109,10 @@ function AccountCreation() {
     }));
   };
 
-  const handleSubmit = async (values,{resetForm}) => {
+  const handleSubmit = async (values, { resetForm }) => {
     console.log(values, "vvvvvvvvvvv")
     try {
-      
+
       const res = await dispatch(createAccount(values))
       await dispatch(addDocs(files))
       toast.success("Account created successfully!");

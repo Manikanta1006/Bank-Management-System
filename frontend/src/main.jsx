@@ -19,6 +19,8 @@ import Alltransation from './Pages/Alltransations/Alltransation.jsx'
 import ManagerDashBoard from './Components/ManagerDashBoard/ManagerDashBoard.jsx'
 import ManagerSidebar from './Components/Managersidebar/ManagerSidebar.jsx'
 import LoanCreation from './Pages/LoanCreation/LoanCreation.jsx'
+import Customers from './Pages/Customers/Customers.jsx'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +34,7 @@ const router = createBrowserRouter([
       {path:"/register",element:<Register/>},
  
       {path:"/main",element:<Sidebar/>,
+
         children:[
          {path:"/main/customer",element:<UserDashboard/>},
          {path:"/main/createaccount",element:<AccountCreation/>},
@@ -44,8 +47,10 @@ const router = createBrowserRouter([
 
       },
       {path:"/manager",element:<ManagerSidebar/>,
+
         children:[
-          {path:"/manager/Dashboard",element:<ManagerDashBoard/>}
+          {path:"/manager/Dashboard",element:<ManagerDashBoard/>},
+          {path:"/manager/customers",element:<Customers/>}
         ]
 
       }

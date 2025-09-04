@@ -44,6 +44,10 @@ function UserDashboard() {
   const y = useSelector((state)=>state)
   console.log(y,"store")
 
+
+   const local = localStorage.getItem('user')
+    const userdata = local ? JSON.parse(local):null
+    console.log(userdata,"ususususu")
   // const [refreshOnce, setRefreshOnce] = useState(false);
   // useEffect(() => {
   //   if (!user && !refreshOnce) {
@@ -54,10 +58,10 @@ function UserDashboard() {
   // }, [user, refreshOnce]);
 
   useEffect(() => {
-    if (user?.id) {
-      dispatch(gettingUserwithAccount(user?.id));
+    if (userdata?.id) {
+      dispatch(gettingUserwithAccount(userdata?.id));
     }
-  }, [user?.id, dispatch]);
+  }, [userdata?.id, dispatch]);
 
 
   const { UserDetails } = useSelector((state) => state.useraccount)
@@ -88,11 +92,33 @@ function UserDashboard() {
 
   console.log(toggle, "tttttttttt")
 
+  const localdata = localStorage.getItem('user')
+
+    useEffect(()=>{
+      const data = localdata ? JSON.parse(localdata) : null
+      console.log(data,"dtdtdttt")
+  
+      if(data?.UserType==="Coustomer"){
+          navigate("/main/customer")
+      }
+      // else if(data?.UserType==="Manager"){
+      //   navigate("/manager/Dashboard")
+      // }
+      // else if(data?.UserType==="Admin"){
+      //   navigate("/manager/Dashboard")
+      // }
+      else{
+        navigate("/")
+      }
+  
+    },[localdata,navigate])
+  
 
 
   return (
     // <div>
     <div className="right_outlet_outer">
+      
       <div className="user_info_outer">
         <div className="user_info_left">
           <h1 className="dash_board">
@@ -100,7 +126,7 @@ function UserDashboard() {
           </h1>
           <div className="user_hello_outer">
             <p className="welcome">Welcome</p>
-            <p className="username">{user?.UserName}</p>
+            <p className="username">{UserDetails?.UserName}</p>
             <PiHandWavingDuotone className='hello_icon' />
           </div>
 

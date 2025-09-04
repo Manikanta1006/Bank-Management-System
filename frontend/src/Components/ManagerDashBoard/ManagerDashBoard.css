@@ -1,5 +1,6 @@
-.manager_outer{
+.manager_outer {
     border: 2px solid red;
     width: 100%;
-    height:98vh;
+    height: 96vh;
+    background: linear-gradient(110deg, rgb(220, 219, 221) 3%, rgb(248, 249, 249) 90%);
 }
