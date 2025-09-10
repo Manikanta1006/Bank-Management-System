@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {path:"/manager",element:<ManagerSidebar/>,
 
         children:[
-          {path:"/manager/Dashboard",element:<ManagerDashBoard/>},
+          {path:"/manager/dashboard",element:<ManagerDashBoard/>},
           {path:"/manager/customers",element:<Customers/>}
         ]
 

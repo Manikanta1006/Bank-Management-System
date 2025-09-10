@@ -15,7 +15,9 @@ function Sidebar() {
      const [active, setActive] = useState("dashboard")
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    
+
+    //  const localdata = localStorage.getItem('user')
+
       const handleClick = (e) => {
         setActive(e)
         if(e==="dashboard"){
@@ -44,6 +46,7 @@ function Sidebar() {
                 <div className="logo_outer">
                     <h2 className="logo"><BsBank className='logo_icon' />BMS</h2>
                 </div>
+
                 <div className="list_items_outer" >
 
                     <div className={`list_item ${active === "dashboard" ? "active" : ""}`} onClick={() => handleClick("dashboard")}>

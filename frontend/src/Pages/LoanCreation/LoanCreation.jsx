@@ -132,6 +132,7 @@ function LoanCreation() {
                     <option value="EducationLoan">Education loan</option>
                     <option value="HouseLoan">House loan</option>
                     <option value="GoldLoan">Gold loan</option>
+                    <option value="CarLoan">Car loan</option>
                     </Field>
                   <div className="error_msg_outer">
                     <ErrorMessage name="LoanType" component="div" className='error_msg' />

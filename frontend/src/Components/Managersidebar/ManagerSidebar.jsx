@@ -8,14 +8,19 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { BiSolidHelpCircle } from "react-icons/bi";
 
 import "./ManagerSidebar.css"
+import { logout } from '../../features/authSlice/authSlice'
+import { useDispatch } from 'react-redux'
 function ManagerSidebar() {
 
     const [active, setActive] = useState("dashboard")
     const navigate = useNavigate()
+
+    const dispatch = useDispatch()
+
     const handleClick = (e) => {
         setActive(e)
-        if (e ==="dashboard") {
-            navigate("/manager/Dashboard")
+        if (e === "dashboard") {
+            navigate("/manager/dashboard")
         }
         else if (e === "Customers") {
             navigate("/manager/customers")
@@ -23,6 +28,10 @@ function ManagerSidebar() {
         // else if (e === "transations") {
         //     navigate("/main/transations")
         // }
+    }
+
+    const HandleLogout =()=>{
+        dispatch(logout())
     }
     return (
         <div className='customer_outer'>
@@ -63,7 +72,7 @@ function ManagerSidebar() {
 
                 </div>
                 <div className="logout_outer">
-                    <button className='logout'>Logout <RiLogoutBoxRFill className='logout_icon' /></button>
+                    <button className='logout' onClick={HandleLogout}>Logout <RiLogoutBoxRFill className='logout_icon' /></button>
                 </div>
             </div>
 

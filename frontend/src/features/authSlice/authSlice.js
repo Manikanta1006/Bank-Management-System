@@ -16,17 +16,18 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
     "auth/login",
-    async(formdata)=>{
-        try{
-            const res = await axios.post("http://localhost:3004/api/auth/login",formdata)
-              const { token, user } = res.data;
+    async (formdata) => {
+        try {
+            const res = await axios.post("http://localhost:3004/api/auth/login", formdata)
+            const { token, user } = res.data;
+            console.log(res.data,"rdrdrdrdrdrd")
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
             return { token, user };
             // return res.data
         }
-        catch(err){
-            console.log(err,"thunk login error")
+        catch (err) {
+            console.log(err, "thunk login error")
         }
     }
 )
@@ -42,8 +43,8 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     Users: [],
-    reducers:{
-        logout:(state)=>{
+    reducers: {
+        logout: (state) => {
             state.user = null;
             state.token = null;
             localStorage.removeItem('user')
@@ -58,28 +59,31 @@ const authSlice = createSlice({
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.loading = false
-                console.log(action.payload.User,"aaaaaaaaaa")
-                state.Users = action.payload.user
+                // console.log(action.payload.User, "aaaaaaaaaa")
+                state.user = action.payload.user
             })
             .addCase(register.rejected, (state, action) => {
                 state.loading = false
                 state.error = action.payload
             })
-            .addCase(login.pending,(state)=>{
-                state.loading =true
-                state.error=null
+            .addCase(login.pending, (state) => {
+                state.loading = true
+                state.error = null
             })
-            .addCase(login.fulfilled,(state,action)=>{
+            .addCase(login.fulfilled, (state, action) => {
                 state.loading = false
-                // console.log(action.payload.user,"pppppppp")
-                state.Users = action.payload.user
+                console.log(action.payload,"pppppppp")
+                if (action.payload) {
+                    state.user = action.payload.user;    
+                    // state.token = action.payload.token;
+                }
             })
-            .addCase(login.rejected,(state,action)=>{
+            .addCase(login.rejected, (state, action) => {
                 state.loading = false
                 state.error = action.payload
             })
-    }       
+    }
 })
-export const {logout} = authSlice.actions
+export const { logout } = authSlice.actions
 const authReducer = authSlice.reducer
 export default authReducer

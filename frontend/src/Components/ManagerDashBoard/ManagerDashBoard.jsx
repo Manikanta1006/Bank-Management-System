@@ -1,21 +1,76 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./ManagerDashBoard.css"
-import { HiUserCircle } from 'react-icons/hi2'
-import { PiHandWavingDuotone, PiMagnifyingGlassBold } from 'react-icons/pi'
+import { HiDocumentCurrencyRupee, HiUserCircle } from 'react-icons/hi2'
+import { PiBankFill, PiHandWavingDuotone, PiHandWithdrawFill, PiMagnifyingGlassBold } from 'react-icons/pi'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from 'swiper/element'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { MdManageAccounts, MdSettingsSuggest } from "react-icons/md";
+import { AiFillBank } from "react-icons/ai";
+import { BiSolidBank } from "react-icons/bi";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 
 function ManagerDashBoard() {
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A020F0"];
 
+  const loanData = [
+    { name: "Home Loan", value: 40 },
+    { name: "Personal Loan", value: 25 },
+    { name: "Education Loan", value: 15 },
+    { name: "Car Loan", value: 10 },
+    { name: "Gold Loan", value: 10 },
+  ];
+
+  const monthlyData = [
+    { month: "Jan", accounts: 120, loans: 80 },
+    { month: "Feb", accounts: 150, loans: 95 },
+    { month: "Mar", accounts: 100, loans: 60 },
+    { month: "Apr", accounts: 180, loans: 110 },
+    { month: "May", accounts: 130, loans: 70 },
+    { month: "Jun", accounts: 160, loans: 90 },
+  ];
+
+
+  const navigate = useNavigate()
   const { user } = useSelector((state) => state?.auth)
   console.log(user, "uuuuuuuuu")
+
+  const [active, setActive] = useState('')
+
 
 
   const localdata = localStorage.getItem('user')
 
-  const data = localdata ? JSON.parse(localdata) : null
-  console.log(data, "ddddd")
+  useEffect(() => {
+    const data = localdata ? JSON.parse(localdata) : null
+    console.log(data, "dtdtdttt")
 
+    if (data?.UserType === "Coustomer") {
+      navigate("/main/customer")
+    }
+    else if (data?.UserType === "Manager") {
+      navigate("/manager/dashboard")
+    }
+    // else if(data?.UserType==="Admin"){
+    //   navigate("/manager/Dashboard")
+    // }
+    else {
+      navigate("/")
+    }
+
+  }, [localdata, navigate])
 
 
   return (
@@ -46,7 +101,92 @@ function ManagerDashBoard() {
         </div>
       </div>
 
-    
+      <div className="manager_main_outer">
+        <div className="manger_layer1_outer">
+          <div className="manger_layer1" >
+            <HiDocumentCurrencyRupee class='layer1_icons' />
+            <p className="manager_layer_icon_title">
+              Deposite money
+            </p>
+          </div>
+          <div className="manger_layer2">
+            <MdManageAccounts class='layer1_icons' />
+            <p className="manager_layer_icon_title">
+              Account approves
+            </p>
+          </div>
+          <div className="manger_layer3">
+            <PiHandWithdrawFill class='layer1_icons' />
+            <p className="manager_layer_icon_title">
+              Loan approves
+            </p>
+          </div>
+          <div className="manger_layer4">
+            <PiBankFill class='layer1_icons' />
+            <p className="manager_layer_icon_title">
+              Bank details
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+      <div className="manager_main2_outer">
+        <div className="manager_main2">
+
+
+          <div className="manager_main2_left">
+            <div className="chart-card">
+              <h2 className="chart-title">Loan Distribution by Category</h2>
+              <ResponsiveContainer width="100%" height={245}>
+                <PieChart>
+                  <Pie
+                    data={loanData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={96}
+                    fill="#8884d8"
+                    dataKey="value"
+                  // label
+                  >
+                    {loanData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+
+          </div>
+
+          <div className="manager_main2_right">
+            <div className="chart-card">
+              <h2 className="chart-title">
+                Monthly Account Openings & Loans Issued
+              </h2>
+              <ResponsiveContainer width="100%" height={245}>
+                <BarChart data={monthlyData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                  <CartesianGrid stroke="none" />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="accounts" fill="#7c619d" name="Accounts Opened" />
+                  <Bar dataKey="loans" fill="#49a7c0" name="Loans Issued" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
     </div>
   )
 }

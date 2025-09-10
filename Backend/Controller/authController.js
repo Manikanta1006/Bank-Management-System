@@ -33,6 +33,7 @@ exports.login = async(req,res)=>{
         res.json({token,user:{id:user._id,UserName:user.UserName,UserType:user.UserType}})
     }
     catch(err){
+        console.log(err,"error in auth controller")
         res.status(500).json({error:err.message})
     }
 }

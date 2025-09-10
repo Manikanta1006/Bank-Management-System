@@ -42,7 +42,7 @@ function Login() {
         navigate("/main/customer")
     }
     else if(data?.UserType==="Manager"){
-      navigate("/manager/Dashboard")
+      navigate("/manager/dashboard")
     }
     else if(data?.UserType==="Admin"){
       // navigate("/manager/Dashboard")
@@ -60,15 +60,15 @@ function Login() {
    const result = await dispatch(login(formData))
    console.log(result,"lllllllllll")
    
-   if(result.meta.requestStatus==="fulfilled"){
+   if(result?.meta?.requestStatus==="fulfilled"){
 
-    if(result.payload.user.UserType==="Coustomer"){
+    if(result?.payload?.user?.UserType==="Coustomer"){
       navigate("/main/customer")
     }
-    else if(result.payload.user.UserType==="Manager"){
-      navigate("/manager/Dashboard")
+    else if(result?.payload?.user?.UserType==="Manager"){
+      navigate("/manager/dashboard")
     }
-    else if(result.payload.user.UserType==="Admin"){
+    else if(result?.payload?.user?.UserType==="Admin"){
       navigate("/admin")
     }
    }
