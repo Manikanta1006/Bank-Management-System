@@ -89,7 +89,8 @@ function AccountCreation() {
     InitialDiposit: '',
     NomineeName: '',
     NomineeRelation: '',
-    userId: userdata?.id
+    userId: userdata?.id,
+    AccountApprove:false
   }
 
   const [files, setFiles] = useState({

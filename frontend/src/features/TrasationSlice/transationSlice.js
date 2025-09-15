@@ -10,6 +10,14 @@ export const getaccbytransation = createAsyncThunk(
     }
 )
 
+export const CreateTranasation = createAsyncThunk(
+    "transation/create",
+    async(data)=>{
+        const res = await axios.post("http://localhost:3004/api/transations/deposite",data)
+        return res.data
+    }
+)
+
 const getTransationbyId = createSlice({
     name:"transation",
     initialState:{
@@ -29,6 +37,17 @@ const getTransationbyId = createSlice({
         })
         .addCase(getaccbytransation.rejected,(state,action)=>{
             state.status ="rejected"
+            state.error = action.error.message
+        })
+        .addCase(CreateTranasation.pending,(state)=>{
+            state.status = "pending"
+        })
+        .addCase(CreateTranasation.fulfilled,(state,action)=>{
+            state.status = "fulfilled"
+            state.TransationsById = action.payload
+        })
+        .addCase(CreateTranasation.rejected,(state,action)=>{
+            state.status = "rejected"
             state.error = action.error.message
         })
     }

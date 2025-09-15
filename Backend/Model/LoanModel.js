@@ -18,6 +18,9 @@ const LoanShema = new mongoose.Schema({
     },
     Tenure:{
         type:String
+    },
+    LoanApprove:{
+        type:Boolean
     }
 },
     {timestamps:true}

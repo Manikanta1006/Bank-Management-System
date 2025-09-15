@@ -52,7 +52,9 @@ const accountSchema = new mongoose.Schema({
     Nationality:{
         type:String
     },
-   
+    AccountApprove:{
+        type:Boolean
+    }
 },
  {timestamps:true}
 )

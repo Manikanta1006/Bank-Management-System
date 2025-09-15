@@ -1,0 +1,138 @@
+/* Outer Container */
+.acc_app_outer {
+  width: 100%;
+  height:96.4vh;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-radius: 0.5vw;
+   font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  /* border: 2px solid; */
+}
+
+/* Heading */
+.acc_app_heading {
+  font-size: 2.2vw;
+  font-weight: 600;
+  margin: 1vw 0 2vw 1vw;
+  color: #2c2c54;
+  border-left: 0.4vw solid #087b2a;
+  padding-left: 0.8vw;
+}
+
+/* Scroll Layer */
+.acc_app_layer1_outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2vw;
+  height: 78vh;
+  overflow-y: auto;
+  padding: 1vw;
+  /* border: 2px solid green; */
+}
+
+.acc_app_layer1_outer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.acc_app_card {
+  width: 75vw;
+  padding: 1.5vw;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border-radius: 0.8vw;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.acc_app_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Content */
+.acc_app_card_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.acc_app_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.acc_app_top_name {
+  font-size: 1.2vw;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+/* Left & Right Sections */
+.acc_app_card_left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
+.acc_app_card_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+/* Approve Button */
+.acc_app_approve {
+  min-width: 6vw;
+  padding: 0.6vw 1vw;
+  font-size: 1vw;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.6vw;
+  color: #fff;
+  background: linear-gradient(135deg, #28a745, #218838);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.acc_app_approve:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+  transform: scale(1.05);
+}
+
+/* Decline Button */
+.acc_app_declain {
+  min-width: 6vw;
+  padding: 0.6vw 1vw;
+  font-size: 1vw;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.6vw;
+  color: #fff;
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.acc_app_declain:hover {
+  background: linear-gradient(135deg, #c82333, #bd2130);
+  transform: scale(1.05);
+}
+
+/* Status Badge */
+.acc_status {
+  background: #6c757d;
+  color: #fff;
+  padding: 0.4vw 1vw;
+  border-radius: 2vw;
+  font-size: 0.9vw;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

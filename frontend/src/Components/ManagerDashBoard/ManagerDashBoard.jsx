@@ -21,36 +21,47 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
+import { accountsAndLoans, dashboard, GetAllAccounts } from '../../features/ManagerDashboard/MdSlice'
 
 function ManagerDashBoard() {
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A020F0"];
 
-  const loanData = [
-    { name: "Home Loan", value: 40 },
-    { name: "Personal Loan", value: 25 },
-    { name: "Education Loan", value: 15 },
-    { name: "Car Loan", value: 10 },
-    { name: "Gold Loan", value: 10 },
-  ];
+  // const loanData = [
+  //   { name: "Home Loan", value: 40 },
+  //   { name: "Personal Loan", value: 25 },
+  //   { name: "Education Loan", value: 15 },
+  //   { name: "Car Loan", value: 10 },
+  //   { name: "Gold Loan", value: 10 },
+  // ];
 
-  const monthlyData = [
-    { month: "Jan", accounts: 120, loans: 80 },
-    { month: "Feb", accounts: 150, loans: 95 },
-    { month: "Mar", accounts: 100, loans: 60 },
-    { month: "Apr", accounts: 180, loans: 110 },
-    { month: "May", accounts: 130, loans: 70 },
-    { month: "Jun", accounts: 160, loans: 90 },
-  ];
+  // const monthlyData = [
+  //   { month: "Jan", accounts: 120, loans: 80 },
+  //   { month: "Feb", accounts: 150, loans: 95 },
+  //   { month: "Mar", accounts: 100, loans: 60 },
+  //   { month: "Apr", accounts: 180, loans: 110 },
+  //   { month: "May", accounts: 130, loans: 70 },
+  //   { month: "Jun", accounts: 160, loans: 90 },
+  // ];
 
 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { user } = useSelector((state) => state?.auth)
   console.log(user, "uuuuuuuuu")
 
   const [active, setActive] = useState('')
 
+  useEffect(() => {
+    dispatch(dashboard())
+    dispatch(accountsAndLoans())
+    dispatch(GetAllAccounts())
+  }, [dispatch])
 
+  const { Mdashbord } = useSelector((state) => state.ManagerDashboard)
 
+  const {Bargraph} = useSelector((state) => state.ManagerDashboard)
+ 
+  const lastSixMonths = Bargraph.slice(-6)
   const localdata = localStorage.getItem('user')
 
   useEffect(() => {
@@ -72,7 +83,13 @@ function ManagerDashBoard() {
 
   }, [localdata, navigate])
 
+  const HandleDeposite =()=>{
+    navigate("/manager/deposite")
+  }
 
+  const handleApprove = ()=>{
+    navigate("/manager/accountapproves")
+  }
   return (
     <div className='manager_outer'>
       <div className="user_info_outer">
@@ -103,15 +120,15 @@ function ManagerDashBoard() {
 
       <div className="manager_main_outer">
         <div className="manger_layer1_outer">
-          <div className="manger_layer1" >
+          <div className="manger_layer1" onClick={HandleDeposite}>
             <HiDocumentCurrencyRupee class='layer1_icons' />
             <p className="manager_layer_icon_title">
-              Deposite money
+              Transations
             </p>
           </div>
-          <div className="manger_layer2">
+          <div className="manger_layer2" onClick={handleApprove}>
             <MdManageAccounts class='layer1_icons' />
-            <p className="manager_layer_icon_title">
+            <p className="manager_layer_icon_title" >
               Account approves
             </p>
           </div>
@@ -141,15 +158,16 @@ function ManagerDashBoard() {
               <ResponsiveContainer width="100%" height={245}>
                 <PieChart>
                   <Pie
-                    data={loanData}
+                    data={Mdashbord}
                     cx="50%"
                     cy="50%"
                     outerRadius={96}
                     fill="#8884d8"
-                    dataKey="value"
+                    dataKey="count"
+                    nameKey="_id"
                   // label
                   >
-                    {loanData.map((entry, index) => (
+                    {Mdashbord?.map((entry, index) => (
                       <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}
@@ -170,7 +188,7 @@ function ManagerDashBoard() {
                 Monthly Account Openings & Loans Issued
               </h2>
               <ResponsiveContainer width="100%" height={245}>
-                <BarChart data={monthlyData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <BarChart data={lastSixMonths} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                   <CartesianGrid stroke="none" />
                   <XAxis dataKey="month" />
                   <YAxis />

@@ -5,7 +5,7 @@ const accountModel = require("../Model/CreateAccount.model")
 const newAccountCreate = async(data)=>{
     try{
         const account = await accountModel.create(data)
-        console.log(account,"acacacac")
+        // console.log(account,"acacacac")
         return account;
     }
     catch(err){

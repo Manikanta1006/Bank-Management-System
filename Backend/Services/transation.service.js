@@ -16,8 +16,8 @@ const AmountDeposite = async (managerId, AccountId, amount, TransationType) => {
                 throw new Error("User Account not found");
             }
 
-            deposite.InitialDiposit = deposite.InitialDiposit + amount
-            await deposite.save()
+            deposite.InitialDiposit = Number(deposite.InitialDiposit) + Number(amount);
+             await deposite.save()
             const depositeRecord = await Transation.create({
                 managerId,
                 AccountId,
@@ -31,52 +31,60 @@ const AmountDeposite = async (managerId, AccountId, amount, TransationType) => {
                 depositeRecord
             }
         }
-        
-
-    // withdraw
 
 
-     if (TransationType === 'Withdraw') {
+        // withdraw
+
+
+
+
+        if (TransationType === 'Withdraw') {
 
             const withdraw = await UserAccount.findById(AccountId)
-            console.log(withdraw, "dpsppspdfpfpdp")
 
             if (!withdraw) {
                 throw new Error("User Account not found");
             }
 
-            withdraw.InitialDiposit = withdraw.InitialDiposit - amount
-            await withdraw.save()
-            const depositeRecord = await Transation.create({
-                managerId,
-                AccountId,
-                amount,
-                TransationType
-            })
 
+            if (withdraw.InitialDiposit > 0) {
 
-            return {
-                withdraw,
-                depositeRecord
+                withdraw.InitialDiposit = withdraw.InitialDiposit - amount
+                await withdraw.save()
+                const depositeRecord = await Transation.create({
+                    managerId,
+                    AccountId,
+                    amount,
+                    TransationType
+                })
+                return {
+                    withdraw,
+                    depositeRecord
+                }
+
             }
+            else {
+                throw new Error("account lo dabbulu levu ra")
+            }
+
         }
-    
-        
-    //   const account = await UserAccount.findById(AccountId)
-    //         console.log(account,"acaccacaca")
-    //     const intrest = 4;
-    //      const monthlyIntrest = (account.InitialDiposit * intrest) / 12 /100
 
-    //      account.InitialDiposit = account.InitialDiposit+monthlyIntrest
 
-    //         await account.save()
+        //   const account = await UserAccount.findById(AccountId)
+        //         console.log(account,"acaccacaca")
+        //     const intrest = 4;
+        //      const monthlyIntrest = (account.InitialDiposit * intrest) / 12 /100
 
-    //          await Transation.create({
-    //             // managerId,
-    //             AccountId,
-    //             amount:monthlyIntrest,
-    //             TransationType:'Intrest'
-    //         })
+        //      account.InitialDiposit = account.InitialDiposit+monthlyIntrest
+
+        //         await account.save()
+
+        //          await Transation.create({
+        //             // managerId,
+        //             AccountId,
+        //             amount:monthlyIntrest,
+        //             TransationType:'Intrest'
+        //         })
 
     }
 

@@ -20,6 +20,9 @@ import ManagerDashBoard from './Components/ManagerDashBoard/ManagerDashBoard.jsx
 import ManagerSidebar from './Components/Managersidebar/ManagerSidebar.jsx'
 import LoanCreation from './Pages/LoanCreation/LoanCreation.jsx'
 import Customers from './Pages/Customers/Customers.jsx'
+import DepositeMoney from './Pages/DepositeMoney/DepositeMoney.jsx'
+import AccountApproves from './Pages/AccountApproves/AccountApproves.jsx'
+import LoanApproves from './Pages/LoanApproves/LoanApproves.jsx'
 
 const router = createBrowserRouter([
   {
@@ -50,7 +53,10 @@ const router = createBrowserRouter([
 
         children:[
           {path:"/manager/dashboard",element:<ManagerDashBoard/>},
-          {path:"/manager/customers",element:<Customers/>}
+          {path:"/manager/customers",element:<Customers/>},
+          {path:"/manager/deposite",element:<DepositeMoney/>},
+          {path:"/manager/accountapproves",element:<AccountApproves/>},
+          {path:"/manager/loansapproves",element:<LoanApproves/>}
         ]
 
       }

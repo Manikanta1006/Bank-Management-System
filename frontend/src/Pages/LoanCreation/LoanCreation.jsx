@@ -59,7 +59,8 @@ function LoanCreation() {
     LoanType:'',
     LoanAmount:'',
     Roi:'',
-    Tenure:''
+    Tenure:'',
+    LoanApprove:false
   }
 
   const validationSchema = Yup.object({
@@ -96,7 +97,7 @@ function LoanCreation() {
   return (
     <div className='loan_outer'>
       <h1 className="loan_creation">
-        LOAN APPLICATION
+        Loan application
       </h1>
       <div className="loan_creation_form_outer">
 
