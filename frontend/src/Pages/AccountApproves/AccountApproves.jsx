@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import "./AccountApproves.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllAccounts } from '../../features/ManagerDashboard/MdSlice'
+import { AccApprove, getuserfiles } from '../../features/accountCreation/accountCreationSlice'
 
 function AccountApproves() {
 
@@ -18,12 +19,23 @@ function AccountApproves() {
     dispatch(GetAllAccounts())
   },[dispatch])
 
+
+  const HandleApprove = async (e)=>{
+      console.log(e._id,"eeeeeee")
+     await  dispatch(AccApprove(e._id))
+      dispatch(GetAllAccounts())
+  }
+
   return (
     <div className='acc_app_outer'>
       <h1 className='acc_app_heading'>Account Approves</h1>
       <div className="acc_app_layer1_outer">
       {
-        FilterdAcc.map((data)=>(
+        FilterdAcc.length > 0 ? <>
+        {
+
+       
+           FilterdAcc.map((data)=>(
             <div className="acc_app_card">
           <div className="acc_app_top">
            <h6 className="acc_app_top_name">Holder name</h6>
@@ -43,13 +55,22 @@ function AccountApproves() {
             <div className="acc_status">
               Pending
             </div>
-            <button className='acc_app_approve'>Approve</button>
+            <button className='acc_app_approve' onClick={()=>HandleApprove(data)}>Approve</button>
             {/* <button className='acc_app_declain'>Declain</button> */}
           </div>
           </div>
            
         </div>
         ))
+         }
+        </>
+        :
+        <>
+            <h1 className="no_account_approves_head">
+              No account approves
+            </h1>
+         </>
+       
       }
     
       </div>

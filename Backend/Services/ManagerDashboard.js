@@ -9,7 +9,9 @@ const getloans = async () => {
                     count: { $sum: 1 }
                 },
 
-            }
+            },
+            {$project:{_id:0,LoanType:"$_id",count:1}}
+
         ])
         // console.log(loan, "lllllllllll")
         return loan;
@@ -66,8 +68,6 @@ const Bargraph = async () => {
 
             return { month: month, accounts: accounts, loans: loans }
         })
-
-
         return (monthlyData)
     }
     catch (err) {
@@ -78,7 +78,7 @@ const Bargraph = async () => {
 const GetAccounts = async()=>{
     try{
         const accounts = await accountModel.find()
-        console.log(accounts,"acacaacacac")
+        // console.log(accounts,"acacaacacac")
         return accounts;
     }
     catch(err){

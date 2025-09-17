@@ -8,4 +8,6 @@ router.get("/getaccount",accountController.getallaccounts)
 router.put("/updateaccount/:id",accountController.accountupdate)
 router.delete("/accountdelete/:id",accountController.accountdistroy)
 
+router.post("/accountapprove/:id",accountController.AccountApprove)
+
 module.exports = router

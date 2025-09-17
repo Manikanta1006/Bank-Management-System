@@ -24,7 +24,7 @@ const LoansAndAccController = async(req,res)=>{
 const mdGetAccounts = async(req,res)=>{
     try{
         const account = await managerDashboardService.GetAccounts()
-        console.log(account,"acacacaca controller")
+        // console.log(account,"acacacaca controller")
         res.status(201).json(account)
     }
     catch(err){

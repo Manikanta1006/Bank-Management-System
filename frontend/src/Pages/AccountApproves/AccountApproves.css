@@ -38,13 +38,14 @@
 /* Card */
 .acc_app_card {
   width: 75vw;
-  padding: 1.5vw;
+  padding: 1.2vw;
   background: #ffffffcc;
   backdrop-filter: blur(10px);
-  border-radius: 0.8vw;
+  border-radius: 0.7vw;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  /* border: 2px solid; */
 }
 
 .acc_app_card:hover {

@@ -25,6 +25,10 @@
 
 .account_details_heading {
     margin-left: 2vw;
+    border-left: 0.4vw solid;
+    padding-left: 0.5vw;
+    color: #2c2c54;
+    height: 2.6vw;
 }
 
 .layer1_left {
@@ -319,4 +323,13 @@
     width: 20vw;
     height: 15vw;
     border-radius: 0.5vw;
+}
+.acc_navigate_to_create_acc_outer{
+    border: 2px solid;
+}
+.acc_navigate_heading{
+    text-align: center;
+}
+.acc_not_approved_yet{
+    text-align: center;
 }

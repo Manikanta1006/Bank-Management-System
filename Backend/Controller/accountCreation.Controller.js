@@ -48,9 +48,22 @@ const accountdistroy = async(req,res)=>{
     }
 }
 
+const AccountApprove = async(req,res)=>{
+    const {id} = req.params
+    console.log(id,"account approve controller id")
+    try{
+        const acc = await AccountService.accapprove(id)
+        res.status(201).json(acc)
+    }
+    catch(err){
+        res.status(500).json({message:err.message})
+    }
+}
+
 module.exports ={
     accountcreate,
     getallaccounts,
     accountupdate,
-    accountdistroy
+    accountdistroy,
+    AccountApprove
 }

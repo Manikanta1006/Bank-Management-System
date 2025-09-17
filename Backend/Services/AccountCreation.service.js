@@ -2,52 +2,70 @@ const { default: mongoose } = require("mongoose");
 const accountModel = require("../Model/CreateAccount.model")
 
 
-const newAccountCreate = async(data)=>{
-    try{
+const newAccountCreate = async (data) => {
+    try {
         const account = await accountModel.create(data)
         // console.log(account,"acacacac")
         return account;
     }
-    catch(err){
-        console.log(err,"server creation errro")
+    catch (err) {
+        console.log(err, "server creation errro")
     }
 }
 
-const getAccount = async()=>{
-    try{
+const getAccount = async () => {
+    try {
         const accountget = await accountModel.find()
         return accountget;
 
     }
-    catch(err){
+    catch (err) {
         console.log("getacount errror")
     }
 }
 
-const updateAccount = async(id,data)=>{
-    try{
-        const acupdate = await accountModel.findByIdAndUpdate(id,data,{new:true})
+const updateAccount = async (id, data) => {
+    try {
+        const acupdate = await accountModel.findByIdAndUpdate(id, data, { new: true })
         return acupdate
     }
-    catch(err){
-        console.log(err,"account updation error")
+    catch (err) {
+        console.log(err, "account updation error")
     }
 }
 
-const deleteaccount = async(id)=>{
-    try{
+const deleteaccount = async (id) => {
+    try {
         const accountdistroy = await accountModel.findByIdAndDelete(id)
         return accountdistroy;
     }
-    catch(error){
-        console.log(error,"account deletion error")
+    catch (error) {
+        console.log(error, "account deletion error")
     }
 }
 
-module.exports={
+
+const accapprove = async (id) => {
+    try {
+        const account = await accountModel.findById(id)
+        if (!account) {
+            throw new Error("Account not found");
+        }
+        account.AccountApprove = true
+        await account.save()
+        console.log(account,"acacacaca in service")
+        return account
+
+    }
+    catch (err) {
+        console.log(err, "account approve service")
+    }
+}
+module.exports = {
     newAccountCreate,
     getAccount,
     updateAccount,
-    deleteaccount
+    deleteaccount,
+    accapprove
 }
 

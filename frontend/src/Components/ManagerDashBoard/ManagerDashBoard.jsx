@@ -34,14 +34,14 @@ function ManagerDashBoard() {
   //   { name: "Gold Loan", value: 10 },
   // ];
 
-  // const monthlyData = [
-  //   { month: "Jan", accounts: 120, loans: 80 },
-  //   { month: "Feb", accounts: 150, loans: 95 },
-  //   { month: "Mar", accounts: 100, loans: 60 },
-  //   { month: "Apr", accounts: 180, loans: 110 },
-  //   { month: "May", accounts: 130, loans: 70 },
-  //   { month: "Jun", accounts: 160, loans: 90 },
-  // ];
+  const monthlyData = [
+    { month: "Jan", accounts: 120, loans: 80 },
+    { month: "Feb", accounts: 150, loans: 95 },
+    { month: "Mar", accounts: 100, loans: 60 },
+    { month: "Apr", accounts: 180, loans: 110 },
+    { month: "May", accounts: 130, loans: 70 },
+    { month: "Jun", accounts: 160, loans: 90 },
+  ];
 
 
   const dispatch = useDispatch()
@@ -59,6 +59,7 @@ function ManagerDashBoard() {
 
   const { Mdashbord } = useSelector((state) => state.ManagerDashboard)
 
+  console.log(Mdashbord,"mmmm")
   const {Bargraph} = useSelector((state) => state.ManagerDashboard)
  
   const lastSixMonths = Bargraph.slice(-6)
@@ -164,7 +165,7 @@ function ManagerDashBoard() {
                     outerRadius={96}
                     fill="#8884d8"
                     dataKey="count"
-                    nameKey="_id"
+                    nameKey="LoanType"
                   // label
                   >
                     {Mdashbord?.map((entry, index) => (
@@ -188,7 +189,7 @@ function ManagerDashBoard() {
                 Monthly Account Openings & Loans Issued
               </h2>
               <ResponsiveContainer width="100%" height={245}>
-                <BarChart data={lastSixMonths} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <BarChart data={monthlyData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                   <CartesianGrid stroke="none" />
                   <XAxis dataKey="month" />
                   <YAxis />

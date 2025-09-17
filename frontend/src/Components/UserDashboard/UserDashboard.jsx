@@ -157,7 +157,17 @@ function UserDashboard() {
             {
               toggle ? <>
                 <h2 ><FaRupeeSign />
-                  {UserDetails?.accountDetails?.InitialDiposit}
+                  {
+                  
+                  UserDetails?.accountDetails?._id ? 
+                  UserDetails?.accountDetails?.InitialDiposit
+                  :
+                  <>
+                  Create account
+                  </>
+                  
+                  
+                  }
                 </h2>
               </>
                 :

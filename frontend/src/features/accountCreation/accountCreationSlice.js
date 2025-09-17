@@ -10,6 +10,19 @@ export const createAccount = createAsyncThunk(
     }
 )
 
+export const AccApprove = createAsyncThunk(
+    "account/approve",
+    async(id)=>{
+        try{
+            const res = await axios.post(`http://localhost:3004/api/account/accountapprove/${id}`)
+            return res.data
+        }
+        catch(err){
+            console.log(err,"account approve error")
+        }
+    }
+)
+
 export const addDocs = createAsyncThunk(
     "addimges/images",
     async (files) => {
@@ -50,6 +63,7 @@ const accountSlice = createSlice({
     initialState: {
         Accounts: [],
         UserDocs: [],
+        // ApprovedAccounts:[],
         status: "idle",
         error: null
     },
@@ -77,6 +91,18 @@ const accountSlice = createSlice({
             })
             .addCase(getuserfiles.rejected,(state,action)=>{
                 state.status = 'rejected'
+                state.error =action.error.message
+            })
+            .addCase(AccApprove.pending,(state)=>{
+                state.status = "pending"
+            })
+            .addCase(AccApprove.fulfilled,(state,action)=>{
+                state.status = "fulfilled"
+                state.Accounts = action.payload
+
+            })
+            .addCase(AccApprove.rejected,(state,action)=>{
+                state.status ="rejected",
                 state.error =action.error.message
             })
     },

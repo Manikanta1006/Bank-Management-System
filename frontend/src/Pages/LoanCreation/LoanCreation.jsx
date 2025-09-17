@@ -100,11 +100,7 @@ function LoanCreation() {
         Loan application
       </h1>
       <div className="loan_creation_form_outer">
-
-
         <div className="loan_creation_left">
- 
-
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -130,10 +126,11 @@ function LoanCreation() {
                   <label htmlFor="" className="loan_label_apply">Loan type</label>
                   <Field as="select" className="loan_input" name='LoanType' style={{width:"15.4vw"}}>
                     <option value="">Select type</option>
-                    <option value="EducationLoan">Education loan</option>
-                    <option value="HouseLoan">House loan</option>
-                    <option value="GoldLoan">Gold loan</option>
-                    <option value="CarLoan">Car loan</option>
+                    <option value="Education_loan">Education loan</option>
+                    <option value="Home_loan">House loan</option>
+                    <option value="Gold_loan">Gold loan</option>
+                    <option value="Car_loan">Car loan</option>
+                    <option value="Personal_loan">Personal loan</option>
                     </Field>
                   <div className="error_msg_outer">
                     <ErrorMessage name="LoanType" component="div" className='error_msg' />

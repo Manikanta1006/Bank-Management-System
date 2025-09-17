@@ -14,8 +14,7 @@ function Account() {
   
   const { UserDetails } = useSelector((state) => state.useraccount)
  
-  const x = useSelector((state)=>state)
-  console.log(x,"sasasasasaa")
+   console.log(UserDetails,"sasasasasaa")
 
   const local = localStorage.getItem('user')
   const data = local ? JSON.parse(local):null
@@ -33,7 +32,19 @@ function Account() {
     <div className='account_outer'>
 
       <h1 className='account_details_heading'>Account details</h1>
-      <div className="account_details_layer1">
+
+    {
+      UserDetails?.accountDetails?.AccountApprove === false ?
+      <>
+      <h1 className='acc_not_approved_yet'>Account not upproved yet</h1>
+      </> 
+      :
+      
+      <>
+      {
+        UserDetails?.accountDetails?.AccountApprove === true ?
+        <>
+            <div className="account_details_layer1">
         <div className="layer1_left">
           <div className="user_img_outer">
             <img src={`http://localhost:3004/uploads/${UserDocs.photo}`} alt="person" className="user" />
@@ -177,6 +188,21 @@ function Account() {
         </div>
          </div>
       </div>
+      
+      </>
+        :
+
+        <>
+        <div className="acc_navigate_to_create_acc_outer">
+         <h1 className='acc_navigate_heading'>Create account</h1>
+
+        </div>
+        </>
+
+      }
+      </>
+    }
+    
     </div>
   )
 }
