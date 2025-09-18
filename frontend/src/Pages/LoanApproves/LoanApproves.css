@@ -1,0 +1,103 @@
+.loan_approves_outer {
+    border: 2px solid red;
+    width: 100%;
+    height: 96.1vh;
+}
+
+.loan_approve_heading {
+    font-size: 2.2vw;
+    font-weight: 600;
+    margin: 1vw 0 2vw 1vw;
+    color: #2c2c54;
+    border-left: 0.4vw solid #087b2a;
+    padding-left: 0.8vw;
+}
+
+.loan_approve_card_outer {
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2vw;
+    height: 78vh;
+    overflow: auto;
+    padding: 1vw;
+}
+.acc_app_layer1_outer_loan::-webkit-scrollbar {
+  display: none;
+}
+.acc_app_card_loan {
+    width: 75vw;
+    padding: 1.2vw;
+    background: #ffffffcc;
+    backdrop-filter: blur(10px);
+    border-radius: 0.7vw;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+.acc_app_card_loan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.acc_app_top_loan{
+      display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.acc_app_top_name_loan{
+     font-size: 1.2vw;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+ 
+.acc_app_card_main_loan{
+     display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.acc_app_top_name_loan {
+  font-size: 1.2vw;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+.acc_app_card_left_loan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+.acc_app_card_right_loan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vw;
+}
+.acc_app_approve_loan {
+  min-width: 6vw;
+  padding: 0.6vw 1vw;
+  font-size: 1vw;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.6vw;
+  color: #fff;
+  background: linear-gradient(135deg, #28a745, #218838);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.acc_app_approve_loan:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+  transform: scale(1.05);
+}
+.acc_status_loan {
+  background: #6c757d;
+  color: #fff;
+  padding: 0.4vw 1vw;
+  border-radius: 2vw;
+  font-size: 0.9vw;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

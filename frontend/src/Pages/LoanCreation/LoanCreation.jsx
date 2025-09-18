@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { gettingUserwithAccount } from '../../features/UserSlice/UserwithAccountSlice';
 import { loanCreation } from '../../features/LoanCreation/LoanCreation';
+import { toast } from 'react-toastify';
 
 function LoanCreation() {
 
@@ -70,17 +71,27 @@ function LoanCreation() {
     .transform((value,originalValue)=>
       String(originalValue).trim()=== "" ? undefined:Number(originalValue)
     )
-    .min(21,"Age must be greater than 21")
+    .min(21,"Age must be greater than 21"),
+    LoanType:Yup.string()
+    .required("This field is required"),
+    LoanAmount:Yup.number()
+    .required("This field is required"),
+    Roi:Yup.number()
+    .required("This field is required"),
+    Tenure:Yup.number()
+    .required("This field is required")
   })
 
-  const HandleSubmit = async (values)=>{
+  const HandleSubmit = async (values,{resetForm})=>{
     console.log(values,"valuesvaluesvalues")
     try{
 
       const res = await dispatch(loanCreation(values))
-      alert("submited")
+       toast.success("Transaction success!");
+        resetForm()
     }
     catch(err){
+      toast.error("Account creation failed!");
       console.log(err,"loan creation error")
     }
     

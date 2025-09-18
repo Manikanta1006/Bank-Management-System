@@ -13,7 +13,7 @@ const mdController = async(req,res)=>{
 const LoansAndAccController = async(req,res)=>{
     try{
         const loansaccount = await managerDashboardService.Bargraph()
-        console.log(loansaccount,"rseersrsrrer")
+        // console.log(loansaccount,"rseersrsrrer")
         res.status(201).json(loansaccount)
     }
     catch(err){

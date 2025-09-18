@@ -44,9 +44,9 @@ const router = createBrowserRouter([
          {path:"/main/account",element:<Account/>},
          {path:"/main/maps",element:<Atmfinder/>},
          {path:"/main/transations",element:<Alltransation/>},
-         {path:"/main/loan",element:<LoanCreation/>}
-        //  {path:"/main/manager",element:<ManagerDashBoard/>}
-        ]
+         {path:"/main/loan",element:<LoanCreation/>},
+         {path:"/main/loanapproves",element:<LoanApproves/>}
+         ]
 
       },
       {path:"/manager",element:<ManagerSidebar/>,

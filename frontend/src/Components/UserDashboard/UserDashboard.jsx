@@ -6,7 +6,20 @@ import { LuArrowLeftRight } from 'react-icons/lu'
 import { MdAddCircleOutline, MdLocationOn, MdOutlineSavings } from 'react-icons/md'
 import { PiHandWavingDuotone, PiMagnifyingGlassBold } from 'react-icons/pi'
 import { SiFuturelearn } from 'react-icons/si'
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
+
 // import Swiper from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
@@ -27,12 +40,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { gettingUserwithAccount } from '../../features/UserSlice/UserwithAccountSlice'
 function UserDashboard() {
 
-  const data = [
-    { week: 'Week 1', amount: 5500 },
-    { week: 'Week 2', amount: 3200 },
-    { week: 'Week 3', amount: 7600 },
-    { week: 'Week 4', amount: 2100 },
+  // const data = [
+  //   { week: 'Week 1', amount: 5500 },
+  //   { week: 'Week 2', amount: 3200 },
+  //   { week: 'Week 3', amount: 7600 },
+  //   { week: 'Week 4', amount: 2100 },
 
+  // ];
+
+
+    const monthlyData = [
+    { month: "Jan", deposite:60, withdraw: 50 },
+    { month: "Feb", deposite:65, withdraw: 25 },
+    { month: "Mar", deposite: 30, withdraw: 45 },
+    { month: "Apr", deposite: 18, withdraw:21 },
+    { month: "May", deposite: 20, withdraw: 10 },
+    { month: "Jun", deposite: 40, withdraw: 10 },
   ];
 
   const dispatch = useDispatch()
@@ -41,13 +64,13 @@ function UserDashboard() {
   const { user } = useSelector((state) => state?.auth)
   console.log(user, "dddddddddddd")
 
-  const y = useSelector((state)=>state)
-  console.log(y,"store")
+  const y = useSelector((state) => state)
+  console.log(y, "store")
 
 
-   const local = localStorage.getItem('user')
-    const userdata = local ? JSON.parse(local):null
-    console.log(userdata,"ususususu")
+  const local = localStorage.getItem('user')
+  const userdata = local ? JSON.parse(local) : null
+  console.log(userdata, "ususususu")
   // const [refreshOnce, setRefreshOnce] = useState(false);
   // useEffect(() => {
   //   if (!user && !refreshOnce) {
@@ -94,31 +117,31 @@ function UserDashboard() {
 
   const localdata = localStorage.getItem('user')
 
-    useEffect(()=>{
-      const data = localdata ? JSON.parse(localdata) : null
-      console.log(data,"dtdtdttt")
-  
-      if(data?.UserType==="Coustomer"){
-          navigate("/main/customer")
-      }
-      // else if(data?.UserType==="Manager"){
-      //   navigate("/manager/Dashboard")
-      // }
-      // else if(data?.UserType==="Admin"){
-      //   navigate("/manager/Dashboard")
-      // }
-      else{
-        navigate("/")
-      }
-  
-    },[localdata,navigate])
-  
+  useEffect(() => {
+    const data = localdata ? JSON.parse(localdata) : null
+    console.log(data, "dtdtdttt")
+
+    if (data?.UserType === "Coustomer") {
+      navigate("/main/customer")
+    }
+    // else if(data?.UserType==="Manager"){
+    //   navigate("/manager/Dashboard")
+    // }
+    // else if(data?.UserType==="Admin"){
+    //   navigate("/manager/Dashboard")
+    // }
+    else {
+      navigate("/")
+    }
+
+  }, [localdata, navigate])
+
 
 
   return (
     // <div>
     <div className="right_outlet_outer">
-      
+
       <div className="user_info_outer">
         <div className="user_info_left">
           <h1 className="dash_board">
@@ -158,15 +181,15 @@ function UserDashboard() {
               toggle ? <>
                 <h2 ><FaRupeeSign />
                   {
-                  
-                  UserDetails?.accountDetails?._id ? 
-                  UserDetails?.accountDetails?.InitialDiposit
-                  :
-                  <>
-                  Create account
-                  </>
-                  
-                  
+
+                    UserDetails?.accountDetails?._id ?
+                      UserDetails?.accountDetails?.InitialDiposit
+                      :
+                      <>
+                        Create account
+                      </>
+
+
                   }
                 </h2>
               </>
@@ -318,14 +341,26 @@ function UserDashboard() {
 
         <div className="user_dash_layer2_right">
           <h1 className="chart_heading">This month trasations</h1>
-          <LineChart width={380} height={220} data={data} className='chart'>
+          {/* <LineChart width={380} height={220} data={data} className='chart'>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="week" />
             <YAxis />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="amount" stroke="red" strokeWidth={3} activeDot={{ r: 6 }} />
-          </LineChart>
+          </LineChart> */}
+
+          <ResponsiveContainer width="100%" height={220}>
+            <BarChart data={monthlyData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+              <CartesianGrid stroke="none" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="deposite" fill="#7c619d" name="Deposites" />
+              <Bar dataKey="withdraw" fill="#49a7c0" name="withdraws" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
       </div>

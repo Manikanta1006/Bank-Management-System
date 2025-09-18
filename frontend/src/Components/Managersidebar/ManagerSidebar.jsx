@@ -25,13 +25,14 @@ function ManagerSidebar() {
         else if (e === "Customers") {
             navigate("/manager/customers")
         }
-        // else if (e === "transations") {
-        //     navigate("/main/transations")
+        // else if (e === "loan") {
+        //     navigate("/main/loanapproves")
         // }
     }
 
     const HandleLogout =()=>{
         dispatch(logout())
+        navigate("/")
     }
     return (
         <div className='customer_outer'>

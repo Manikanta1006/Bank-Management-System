@@ -26,7 +26,7 @@
   align-items: center;
   gap: 1.2vw;
   height: 78vh;
-  overflow-y: auto;
+  overflow:auto;
   padding: 1vw;
   /* border: 2px solid green; */
 }

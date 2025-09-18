@@ -1,25 +1,29 @@
 const loanModel = require("../Model/LoanModel")
 const accountModel = require("../Model/CreateAccount.model")
+
+
 const getloans = async () => {
     try {
-        const loan = await loanModel.aggregate([
+
+        const loans = await loanModel.aggregate([
             {
                 $group: {
                     _id: "$LoanType",
                     count: { $sum: 1 }
-                },
-
+                }
             },
-            {$project:{_id:0,LoanType:"$_id",count:1}}
-
+            {
+                $project: { _id: 0, LoanType: "$_id", count: 1 }
+            }
         ])
-        // console.log(loan, "lllllllllll")
-        return loan;
+        return loans;
     }
-    catch (e) {
-        console.log(e, "manager dashbord getting error")
+    catch (err) {
+        console.log(err, "loan piechart error")
     }
+
 }
+
 
 const Bargraph = async () => {
     try {
@@ -75,14 +79,14 @@ const Bargraph = async () => {
     }
 }
 
-const GetAccounts = async()=>{
-    try{
+const GetAccounts = async () => {
+    try {
         const accounts = await accountModel.find()
         // console.log(accounts,"acacaacacac")
         return accounts;
     }
-    catch(err){
-        console.log(err,"managerdash board error")
+    catch (err) {
+        console.log(err, "managerdash board error")
     }
 }
 

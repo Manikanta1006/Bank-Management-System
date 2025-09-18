@@ -34,15 +34,6 @@ function ManagerDashBoard() {
   //   { name: "Gold Loan", value: 10 },
   // ];
 
-  const monthlyData = [
-    { month: "Jan", accounts: 120, loans: 80 },
-    { month: "Feb", accounts: 150, loans: 95 },
-    { month: "Mar", accounts: 100, loans: 60 },
-    { month: "Apr", accounts: 180, loans: 110 },
-    { month: "May", accounts: 130, loans: 70 },
-    { month: "Jun", accounts: 160, loans: 90 },
-  ];
-
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -91,6 +82,19 @@ function ManagerDashBoard() {
   const handleApprove = ()=>{
     navigate("/manager/accountapproves")
   }
+
+  const HandleLoanApprove =()=>{
+    navigate("/main/loanapproves")
+  }
+
+    const monthlyData = [
+    { month: "Jan", accounts: 120, loans: 80 },
+    { month: "Feb", accounts: 150, loans: 95 },
+    { month: "Mar", accounts: 100, loans: 60 },
+    { month: "Apr", accounts: 180, loans: 110 },
+    { month: "May", accounts: 130, loans: 70 },
+    { month: "Jun", accounts: 160, loans: 90 },
+  ];
   return (
     <div className='manager_outer'>
       <div className="user_info_outer">
@@ -133,7 +137,7 @@ function ManagerDashBoard() {
               Account approves
             </p>
           </div>
-          <div className="manger_layer3">
+          <div className="manger_layer3" onClick={HandleLoanApprove}>
             <PiHandWithdrawFill class='layer1_icons' />
             <p className="manager_layer_icon_title">
               Loan approves
